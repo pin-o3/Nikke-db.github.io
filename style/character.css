@@ -19,7 +19,7 @@
     background-color: var(--main-dark-theme);
     margin-left: 20px;
     margin-right: 10px;
-    max-height: 75vh;
+    max-height: 65vh;
     overflow: auto;
 }
 
@@ -72,8 +72,22 @@
     text-align: justify;
 }
 #character-FB img{
-    max-width: 100%;
+    max-width: 20vw;
+    max-height: 65vh;
+  
 }
 #character-FB{
-    max-width: 20vw;
+    width: 20vw;
+}
+#stats-progresses{
+    margin-top: 20px;
+}
+#prog-min-hp,
+#prog-min-att,
+#prog-min-def,
+#prog-max-hp,
+#prog-max-att,
+#prog-max-def
+{
+    font-weight: bold;
 }

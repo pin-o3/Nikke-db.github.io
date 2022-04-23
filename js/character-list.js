@@ -7,9 +7,8 @@ async function initJSON(){
         return a.id.localeCompare(b.id);
         
     })
-    let i = 0;
+    
     json.map((val)=>{
-        i++
         const liste_item = document.createElement("li");
         // const mainImg = document.createElement("img");
         // const mainName = document.createElement("p");
@@ -22,7 +21,7 @@ async function initJSON(){
         liste_item.classList.add("charDiv")
         
         liste_item.addEventListener("click", (e)=>{
-            document.querySelector("#character-search-input").scrollIntoView()
+            //document.querySelector("#character-search-input").scrollIntoView()
             changeData(val)
         })
         div.appendChild(liste_item)
