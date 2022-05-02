@@ -10,21 +10,16 @@ async function initJSON(){
     
     json.map((val)=>{
         const liste_item = document.createElement("li");
-        // const mainImg = document.createElement("img");
-        // const mainName = document.createElement("p");
-        // mainImg.src="images/sprite/si_"+val.id+"_00_s.png";
-        // mainName.innerHTML=val.name;
-        // mainCard.appendChild(mainImg)
-        // mainCard.appendChild(mainName)
+        
         liste_item.innerHTML = "<img src='images/sprite/si_"+val.id+"_00_s.png'/>" + val.name
-        //mainCard.classList.add("card")
+       
         liste_item.classList.add("charDiv")
         
         liste_item.addEventListener("click", (e)=>{
             //document.querySelector("#character-search-input").scrollIntoView()
             changeData(val)
         })
-        div.appendChild(liste_item)
+        div.appendChild(liste_item) //div character list
     })
     changeData(json[0])
 }

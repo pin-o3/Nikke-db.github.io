@@ -63,6 +63,11 @@ const changeData = async (val) => {
     document.querySelector("#character-FB img").alt = "Missing image for " +val.name
 
     // change the stat progress bars with written values, and different sizes 
+    const starArray = [minhp, maxhp, minatt, maxatt, mindef, maxdef]
+    const typeArray = ["Health", "Attack", "Defense"]
+    const typeShort = ["hp", "att", "def"]
+    const minmax = ["min", "max"]
+
     document.querySelector("#prog-min-hp").innerHTML  = "Lv.1 Health: "+minhp
     document.querySelector("#prog-min-hp").style.width= progress_value(minhp, "hp")+"%"
 
