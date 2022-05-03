@@ -1,3 +1,4 @@
+let currentSkill = 0;
 const progress_value = (val, type)=>{
     let maxstat
     switch(type){
@@ -12,6 +13,20 @@ const progress_value = (val, type)=>{
             break;
     }
     return percentage = 100*val/maxstat
+}
+
+const hideSkill = () => {
+    for (let i = 0; i<4; i++){
+        document.querySelectorAll(".activeHeader")[i].hidden = true
+        document.querySelectorAll(".activeDesc")[i].hidden = true
+        document.querySelectorAll("#wr3div1 .btn")[i].classList.remove("activeskill")
+    }
+}
+const showSkill = (index) => {
+    hideSkill()
+    document.querySelectorAll(".activeHeader")[index].hidden = false
+    document.querySelectorAll(".activeDesc")[index].hidden = false
+    document.querySelectorAll("#wr3div1 .btn")[index].classList.add("activeskill")
 }
 
 const changeData = async (val) => {
@@ -63,10 +78,7 @@ const changeData = async (val) => {
     document.querySelector("#character-FB img").alt = "Missing image for " +val.name
 
     // change the stat progress bars with written values, and different sizes 
-    const starArray = [minhp, maxhp, minatt, maxatt, mindef, maxdef]
-    const typeArray = ["Health", "Attack", "Defense"]
-    const typeShort = ["hp", "att", "def"]
-    const minmax = ["min", "max"]
+    // lazy to automate using arrays and several if & switch
 
     document.querySelector("#prog-min-hp").innerHTML  = "Lv.1 Health: "+minhp
     document.querySelector("#prog-min-hp").style.width= progress_value(minhp, "hp")+"%"
@@ -86,8 +98,38 @@ const changeData = async (val) => {
     document.querySelector("#prog-max-def").innerHTML = "Lv."+maxlvl+" Defense: "+maxdef
     document.querySelector("#prog-max-def").style.width= progress_value(maxdef, "def")+"%"
 
+    hideSkill()
+
+    document.querySelector("#SkillRegularHeader").innerHTML = "TO BE ADDED WITH RELEASE"
+    document.querySelector("#Skill1Header").innerHTML = val.skill1_name
+    document.querySelector("#Skill2Header").innerHTML = val.skill2_name
+    document.querySelector("#SkillBurstHeader").innerHTML = val.ulti_name
+
+    document.querySelector("#SkillRegularDesc").innerHTML = "TO BE ADDED WITH RELEASE"
+    document.querySelector("#Skill1Desc").innerHTML   = val.skill1_description
+    document.querySelector("#Skill2Desc").innerHTML   = val.skill2_description
+    document.querySelector("#SkillBurstDesc").innerHTML = val.ulti_description
+
+    showSkill(currentSkill)
+
 }
 
 document.querySelector("#character-FB img").addEventListener("click", (e)=>{
     window.location.href = document.querySelector("#character-FB img").src
+})
+document.querySelector("#btn-regular-attack").addEventListener("click", (e)=>{
+    currentSkill=0
+    showSkill(currentSkill)
+})
+document.querySelector("#btn-skill-1").addEventListener("click", (e)=>{
+    currentSkill=1
+    showSkill(currentSkill)
+})
+document.querySelector("#btn-skill-2").addEventListener("click", (e)=>{
+    currentSkill=2
+    showSkill(currentSkill)
+})
+document.querySelector("#btn-burst-skill").addEventListener("click", (e)=>{
+    currentSkill = 3
+    showSkill(currentSkill)
 })
