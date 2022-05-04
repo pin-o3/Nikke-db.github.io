@@ -2,7 +2,6 @@
     --main-dark-theme: #212529;
     --alt-dark-theme : #2f353a;
 }
-
 .searchbar{
     width: 50%;
     margin-left: 25%;
@@ -12,7 +11,6 @@
     display: flex;
     margin-top: 20px;
 }
-
 #main-div-character-list{
     flex: 0 0 200px;
     border-left: white 2px dotted;
@@ -22,13 +20,11 @@
     max-height: 65vh;
     overflow: auto;
 }
-
 #main-div-character-stats{
     position: relative;
     flex:1;
     margin-left: 10px;
     margin-right: 20px;
-    
 }
 .wrapper2{
     display: flex;
@@ -47,13 +43,19 @@
 #wr2div1{
     padding-top:2vh
 }
+#fullskills{
+    margin-top:50px;
+}
+.skill-titles{
+    text-align: center;
+}
 .wrapper3{
-    padding-top:2vh;
     display:flex;
 }
 #wr3div1{
     flex: 0 0 200px;
-    border-left:solid white 3px
+    border-left:solid white 3px;
+    height:160px;
 }
 #wr3div1 button{
     width: 100%;
@@ -69,11 +71,22 @@
 .activeskill{
     border-right: gold 4px solid !important; 
 }
-
 #wr3div2{
     flex:1 0 0;
     margin-left: 50px;
     text-align: center;
+}
+.wrapper4{
+    display:flex;
+    padding-top: 50px;
+}
+#class-img{
+    flex: 0 0 200px;
+    text-align: center;
+}
+#stats-progresses{
+    flex: 1
+    
 }
 #charNameH1{
     text-align: center;
@@ -99,20 +112,15 @@
     height:50px;
     border-radius: 10px;
 }
-
 #charDescription{
     text-align: justify;
 }
 #character-FB img{
     max-width: 20vw;
     max-height: 65vh;
-  
 }
 #character-FB{
     width: 20vw;
-}
-#stats-progresses{
-    margin-top: 20px;
 }
 #prog-min-hp,
 #prog-min-att,
@@ -122,4 +130,9 @@
 #prog-max-def
 {
     font-weight: bold;
+}
+.activeDesc{
+    position: relative;
+    top:0;
+    text-align:left;
 }

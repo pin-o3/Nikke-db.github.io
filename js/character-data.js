@@ -28,6 +28,14 @@ const showSkill = (index) => {
     document.querySelectorAll(".activeDesc")[index].hidden = false
     document.querySelectorAll("#wr3div1 .btn")[index].classList.add("activeskill")
 }
+const formatSkill = (skill) =>{
+    skill = skill.replaceAll("■", "<br>■");
+    skill = skill.replaceAll("[Own]", "");
+    skill = skill.replaceAll("[Apply on all enemies]","");
+    skill = skill.replaceAll("] [lasts","")
+    skill = skill.replaceAll("[Apply on target]", "")
+    return skill.slice(4)
+}
 
 const changeData = async (val) => {
 
@@ -98,19 +106,23 @@ const changeData = async (val) => {
     document.querySelector("#prog-max-def").innerHTML = "Lv."+maxlvl+" Defense: "+maxdef
     document.querySelector("#prog-max-def").style.width= progress_value(maxdef, "def")+"%"
 
+    // show skills
     hideSkill()
 
-    document.querySelector("#SkillRegularHeader").innerHTML = "TO BE ADDED WITH RELEASE"
-    document.querySelector("#Skill1Header").innerHTML = val.skill1_name
-    document.querySelector("#Skill2Header").innerHTML = val.skill2_name
-    document.querySelector("#SkillBurstHeader").innerHTML = val.ulti_name
+    document.querySelector("#SkillRegularHeader").innerHTML = "TO BE ADDED WITH RELEASE";
+    document.querySelector("#Skill1Header").innerHTML = val.skill1_name;
+    document.querySelector("#Skill2Header").innerHTML = val.skill2_name;
+    document.querySelector("#SkillBurstHeader").innerHTML = val.ulti_name;
 
-    document.querySelector("#SkillRegularDesc").innerHTML = "TO BE ADDED WITH RELEASE"
-    document.querySelector("#Skill1Desc").innerHTML   = val.skill1_description
-    document.querySelector("#Skill2Desc").innerHTML   = val.skill2_description
-    document.querySelector("#SkillBurstDesc").innerHTML = val.ulti_description
+    document.querySelector("#SkillRegularDesc").innerHTML = "TO BE ADDED WITH RELEASE";
+    document.querySelector("#Skill1Desc").innerHTML   =   formatSkill(val.skill1_description);
+    document.querySelector("#Skill2Desc").innerHTML   =   formatSkill(val.skill2_description);
+    document.querySelector("#SkillBurstDesc").innerHTML = formatSkill(val.ulti_description);
 
     showSkill(currentSkill)
+
+    //show the class image, next to stats
+    document.querySelector("#class-img img").src = "images/classes/"+val.class+".png"
 
 }
 
