@@ -78,6 +78,7 @@
     padding: 20px 25px 0 25px;
     text-align: center;
     background-color: var(--main-dark-theme);
+    border-radius: 15px;
     height:195px;
     overflow:auto;
 }
