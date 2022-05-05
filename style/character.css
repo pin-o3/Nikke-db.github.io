@@ -53,6 +53,7 @@
     display:flex;
 }
 #wr3div1{
+    margin-top:20px;
     flex: 0 0 200px;
     border-left:solid white 3px;
     height:160px;
@@ -73,8 +74,12 @@
 }
 #wr3div2{
     flex:1 0 0;
-    margin-left: 50px;
+    margin: 0 25px 0 25px;
+    padding: 20px 25px 0 25px;
     text-align: center;
+    background-color: var(--main-dark-theme);
+    height:195px;
+    overflow:auto;
 }
 .wrapper4{
     display:flex;

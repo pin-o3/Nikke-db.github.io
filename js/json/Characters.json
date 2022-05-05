@@ -9,9 +9,9 @@
         "squad": "Matis",
         "name": "Maxine",
         "skill1_name": "Straight Shot",
-        "skill1_description": "■ After firing {description_value_01}rounds of ammunition, cast on all enemies hit\r\n<color=#00AEFF>[Apply on target] [DEF {description_value_03}% ▼] [lasts for {description_value_04} sec]</color>\r\n<color=#00AEFF>[Apply on target] [Organic Damage {description_value_02}%]</color>",
+        "skill1_description": "■ After firing {description_value_01} rounds of ammunition, cast on all enemies hit\r\n<color=#00AEFF>[Apply on target] [DEF {description_value_03}% ▼] [lasts for {description_value_04} sec]</color>\r\n<color=#00AEFF>[Apply on target] [Organic Damage {description_value_02}%]</color>",
         "skill2_name": "Spark Shot",
-        "skill2_description": "■ After firing {description_value_05} round(s) of ammunition,\r\n<color=#00AEFF>[Own] [Critical Damage {description_value_01}%▲] [lasts for {description_value_02} sec]</color> \r\n<color=#00AEFF>[Own] [Reloading Speed {description_value_03}%▲] [lasts for {description_value_02} sec]</color>\r\n■ After firing {description_value_05} rounds of ammunition, cast on all enemies hit\r\n<color=#00AEFF>[Apply on target] [Organic Damage {description_value_06}%]</color>",
+        "skill2_description": "■ After firing {description_value_05} round(s) of ammunition,\r\n<color=#00AEFF>[Own] [Critical Damage {description_value_01}% ▲] [lasts for {description_value_02} sec]</color> \r\n<color=#00AEFF>[Own] [Reloading Speed {description_value_03}% ▲] [lasts for {description_value_02} sec]</color>\r\n■ After firing {description_value_05} rounds of ammunition, cast on all enemies hit\r\n<color=#00AEFF>[Apply on target] [Organic Damage {description_value_06}%]</color>",
         "ulti_name": "Full Metal Jacket",
         "ulti_description": "■ Cast on enemy unit with the highest ATK\r\n<color=#00AEFF>[Apply on target] [True Damage {description_value_01}%]</color>\r\n■ When enemy's Armor Break debuff reaches Max Stack, also casts \r\n<color=#00AEFF>[Apply on target] [True Damage {description_value_02}%]</color>",
         "weapon": {

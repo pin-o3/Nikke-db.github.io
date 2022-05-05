@@ -28,13 +28,44 @@ const showSkill = (index) => {
     document.querySelectorAll(".activeDesc")[index].hidden = false
     document.querySelectorAll("#wr3div1 .btn")[index].classList.add("activeskill")
 }
-const formatSkill = (skill) =>{
-    skill = skill.replaceAll("■", "<br>■");
-    skill = skill.replaceAll("[Own]", "");
-    skill = skill.replaceAll("[Apply on all enemies]","");
-    skill = skill.replaceAll("] [lasts","")
-    skill = skill.replaceAll("[Apply on target]", "")
-    return skill.slice(4)
+const skillValues= async (desc, id) => {
+    const response = await fetch('js/json/SkillInfoTable.json')
+    const json = await response.json()
+    await json.records.map((val)=>{
+        if (val.id === id){
+            for (let i = 0; i< val.description_value_list.length; i++){
+                desc = desc.replaceAll(`{description_value_0${i+1}}`,val.description_value_list[i].description_value)
+            }
+        }
+    })
+    return desc
+}
+
+const formatSkill = (skill) =>{  
+    return skill
+    .replaceAll("■", "</p><p>■")
+    .replaceAll("[Own]"                 ,"On herself:")
+    .replaceAll("[Apply on all enemies]","On all enemies: ")
+    .replaceAll("] [lasts"              ," ")
+    .replaceAll("[Apply on enemy] "     ,"To one enemy: ")
+    .replaceAll("[Apply on target]"     ,"To one target:")
+    .replaceAll("<color"                ,"<br><color")
+    .replaceAll("</color>"              ,".")
+    .replaceAll("▲"                     ,"<span class='buffarrow'>▲</span>")
+    .replaceAll("▼"                     ,"<span class='debuffarrow'>▼</span>")
+    .replaceAll("ATK"                   ,"<span class='statatk'>ATK</span>" )
+    .replaceAll("HP"                    ,"<span class='stathp'>HP</span>" )
+    .replaceAll("DEF"                   ,"<span class='statdef'>DEF</span>" )
+    .replaceAll("herself"               ,"<span class='AAAA'>herself</span>")
+    .replaceAll("self"                  ,"<span class='AAAA'>self</span>")
+    .replaceAll("friendly unit"         ,"<span class='AAAA'>friendly unit</span>")
+    .replaceAll("target"                ,"<span class='ZZZZ'>target</span>")
+    .replaceAll("enemy"                 ,"<span class='ZZZZ'>enemy</span>")
+    .replaceAll("enemies"               ,"<span class='ZZZZ'>enemies</span>")
+    .replaceAll("["                     ,"")
+    .replaceAll("]"                     ,"")
+    .slice(4)
+    + "</p>"
 }
 
 const changeData = async (val) => {
@@ -115,12 +146,13 @@ const changeData = async (val) => {
     document.querySelector("#SkillBurstHeader").innerHTML = val.ulti_name;
 
     document.querySelector("#SkillRegularDesc").innerHTML = "TO BE ADDED WITH RELEASE";
-    document.querySelector("#Skill1Desc").innerHTML   =   formatSkill(val.skill1_description);
-    document.querySelector("#Skill2Desc").innerHTML   =   formatSkill(val.skill2_description);
-    document.querySelector("#SkillBurstDesc").innerHTML = formatSkill(val.ulti_description);
+    document.querySelector("#Skill1Desc").innerHTML   =   formatSkill(await skillValues(val.skill1_description, val.skill1_id));
+    document.querySelector("#Skill2Desc").innerHTML   =   formatSkill(await skillValues(val.skill2_description, val.skill2_id));
+    document.querySelector("#SkillBurstDesc").innerHTML = formatSkill(await skillValues(val.ulti_description, val.ulti_skill_id));
 
     showSkill(currentSkill)
 
+    console.log(await skillValues(val.ulti_description, val.ulti_skill_id))
     //show the class image, next to stats
     document.querySelector("#class-img img").src = "images/classes/"+val.class+".png"
 
