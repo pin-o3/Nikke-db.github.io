@@ -1442,7 +1442,7 @@
         "skill2_name": "Long Live Firepower",
         "skill2_description": "■ Cast\r\n<color=#00AEFF>[Apply on target] [Critical Rate {description_value_01}% ▲] [lasts for {description_value_02} sec]</color> on friendly Squad\r\n■ While in Full Burst, also cast\r\n<color=#00AEFF>[Apply on target] [Metal ATK {description_value_03}% ▲] [lasts for {description_value_04} sec]</color>",
         "ulti_name": "Fire!",
-        "ulti_description": "■ Cast\r\n<color=#00AEFF>[Apply on target] [Metal Damage {description_value_02}%] on {description_value_01}</color> enemy with the highest DEF\r\n■ If own HP is lower than {description_value_03}%, also cast\r\n<color=#00AEFF>[Apply on All allies] [Metal ATK {description_value_04}% ▲] [lasts for {description_value_05} sec]</color>\r\n<color=#00AEFF>[Apply on target] [Lock-on] [lasts for {description_value_06} sec]</color>",
+        "ulti_description": "■ Cast\r\n<color=#00AEFF>[Apply on target] [Metal Damage {description_value_02}%] on {description_value_01}</color> enemy with the highest DEF\r\n■ If own HP is lower than {description_value_03}%, also cast\r\n<color=#00AEFF>[Apply on all allies] [Metal ATK {description_value_04}% ▲] [lasts for {description_value_05} sec]</color>\r\n<color=#00AEFF>[Apply on target] [Lock-on] [lasts for {description_value_06} sec]</color>",
         "weapon": {
             "weapon_type": "SG",
             "attack_type": "Energy",
@@ -1869,7 +1869,7 @@
         "skill2_name": "Long Live Firepower",
         "skill2_description": "■ Cast\r\n<color=#00AEFF>[Apply on target] [Critical Rate {description_value_01}% ▲] [lasts for {description_value_02} sec]</color> on friendly Squad\r\n■ While in Full Burst, also cast\r\n<color=#00AEFF>[Apply on target] [Metal ATK {description_value_03}% ▲] [lasts for {description_value_04} sec]</color>",
         "ulti_name": "Fire!",
-        "ulti_description": "■ Cast\r\n<color=#00AEFF>[Apply on target] [Metal Damage {description_value_02}%] on {description_value_01}</color> enemy with the highest DEF\r\n■ If own HP is lower than {description_value_03}%, also cast\r\n<color=#00AEFF>[Apply on All allies] [Metal ATK {description_value_04}% ▲] [lasts for {description_value_05} sec]</color>\r\n<color=#00AEFF>[Apply on target] [Lock-on] [lasts for {description_value_06} sec]</color>",
+        "ulti_description": "■ Cast\r\n<color=#00AEFF>[Apply on target] [Metal Damage {description_value_02}%] on {description_value_01}</color> enemy with the highest DEF\r\n■ If own HP is lower than {description_value_03}%, also cast\r\n<color=#00AEFF>[Apply on all allies] [Metal ATK {description_value_04}% ▲] [lasts for {description_value_05} sec]</color>\r\n<color=#00AEFF>[Apply on target] [Lock-on] [lasts for {description_value_06} sec]</color>",
         "weapon": {
             "weapon_type": "SG",
             "attack_type": "Bio",

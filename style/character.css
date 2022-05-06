@@ -7,6 +7,19 @@
     margin-left: 25%;
     margin-top: 25px;
 }
+#filterdiv{
+    padding: 10px 10px 10px 0;
+    margin-left: 25%;
+    text-align: right;
+    background-color: var(--main-dark-theme);
+    width:50%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.filters{
+    border: 2px gold solid !important;
+    color:white !important
+}
 .wrapper{
     display: flex;
     margin-top: 20px;
@@ -92,7 +105,6 @@
 }
 #stats-progresses{
     flex: 1
-    
 }
 #charNameH1{
     text-align: center;
@@ -127,6 +139,7 @@
 }
 #character-FB{
     width: 20vw;
+    text-align: center;
 }
 #prog-min-hp,
 #prog-min-att,
@@ -141,4 +154,42 @@
     position: relative;
     top:0;
     text-align:left;
+}
+#filterModal{
+    margin-top: 15vh; 
+}
+#filterModal .modal-content{
+   background-color: var(--main-dark-theme);
+   
+}
+#filterModal .modal-footer {
+    justify-content: space-between;
+}
+#filterModal .modal-footer button{
+    border-bottom:white solid 2px;
+}
+.wrapperfilter{
+    display:flex
+}
+
+.wrfi1,
+.wrfi2,
+.wrfi3,
+.wrfi4{
+    flex:1;
+    
+}
+
+.filtercontent{
+    margin-top: 10px;
+}
+.alignleft{
+    text-align: left;
+}
+.filterRarity,
+.filterManufacturer,
+.filterWeapon,
+.filterClass,
+.filtertitle{
+    margin-left:20%
 }

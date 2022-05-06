@@ -34,7 +34,11 @@ const skillValues= async (desc, id) => {
     await json.records.map((val)=>{
         if (val.id === id){
             for (let i = 0; i< val.description_value_list.length; i++){
+                if (i >=9){
+                    desc = desc.replaceAll(`{description_value_${i+1}}`,val.description_value_list[i].description_value)
+                }else{
                 desc = desc.replaceAll(`{description_value_0${i+1}}`,val.description_value_list[i].description_value)
+                }
             }
         }
     })
@@ -58,7 +62,11 @@ const formatSkill = (skill) =>{
     .replaceAll("DEF"                   ,"<span class='statdef'>DEF</span>" )
     .replaceAll("herself"               ,"<span class='AAAA'>herself</span>")
     .replaceAll("self"                  ,"<span class='AAAA'>self</span>")
-    .replaceAll("friendly unit"         ,"<span class='AAAA'>friendly unit</span>")
+    .replaceAll("friendly"              ,"<span class='AAAA'>friendly unit</span>")
+    .replaceAll("unit "                  ,"<span class='AAAA'>unit </span>")
+    .replaceAll("units"                 ,"<span class='AAAA'>units</span>")
+    .replaceAll("allies"                ,"<span class='AAAA'>allies</span>")
+    .replaceAll("ally"                  ,"<span class='AAAA'>ally</span>")
     .replaceAll("target"                ,"<span class='ZZZZ'>target</span>")
     .replaceAll("enemy"                 ,"<span class='ZZZZ'>enemy</span>")
     .replaceAll("enemies"               ,"<span class='ZZZZ'>enemies</span>")
@@ -70,6 +78,12 @@ const formatSkill = (skill) =>{
 
 const changeData = async (val) => {
 
+    const paramURL= window.location.search;
+    const ParsedParam = new URLSearchParams(paramURL);
+
+    ParsedParam.set("id", val.id)
+    window.history.replaceState(null, null, "?id="+ParsedParam.get('id'))
+    
     let corporation = val.corporation=="TETRA"? "tetraline" : val.corporation.toLowerCase()
     let minhp,maxhp,minatt,maxatt,mindef,maxdef;
     let maxlvl
@@ -152,7 +166,6 @@ const changeData = async (val) => {
 
     showSkill(currentSkill)
 
-    console.log(await skillValues(val.ulti_description, val.ulti_skill_id))
     //show the class image, next to stats
     document.querySelector("#class-img img").src = "images/classes/"+val.class+".png"
 
@@ -161,6 +174,7 @@ const changeData = async (val) => {
 document.querySelector("#character-FB img").addEventListener("click", (e)=>{
     window.location.href = document.querySelector("#character-FB img").src
 })
+
 document.querySelector("#btn-regular-attack").addEventListener("click", (e)=>{
     currentSkill=0
     showSkill(currentSkill)

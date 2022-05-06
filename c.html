@@ -25,20 +25,31 @@
         </div>
     </nav> 
 
-        <input 
+    <!-- search input with filter button -->
+    <input 
         id="character-search-input"
         class="form-control me-2 searchbar"
         type="input" 
         placeholder="Search for a name" 
-        aria-label="Search">
-        
+    aria-label="Search">
+    <div id="filterdiv">
+            <button 
+            class="btn btn-dark filters"
+            data-bs-toggle="modal"
+            data-bs-target="#filterModal">Filters</button>
+    </div>
+    
+    
+    <!-- main wrapper with sub wrappers inside -->
     <div class="wrapper">
 
+        <!-- character list on the left -->
         <div id="main-div-character-list">
              <ol id="character-list" >
             </ol>
         </div>
 
+        <!-- center data div -->
         <div id="main-div-character-stats">
             <div id="character-stats">
                 <!-- <img src="images/FB/Rapi_full_body_static.png"> -->
@@ -60,10 +71,10 @@
                 
                 <div id="fullskills">
                     <div class="skill-titles">
-                        <h4 class="activeHeader" hidden id="SkillRegularHeader">a</h4>
-                        <h4 class="activeHeader" hidden id="Skill1Header">b</h4>
-                        <h4 class="activeHeader" hidden id="Skill2Header">c</h4>
-                        <h4 class="activeHeader" hidden id="SkillBurstHeader">d</h4>
+                        <h4 class="activeHeader" hidden id="SkillRegularHeader"></h4>
+                        <h4 class="activeHeader" hidden id="Skill1Header"></h4>
+                        <h4 class="activeHeader" hidden id="Skill2Header"></h4>
+                        <h4 class="activeHeader" hidden id="SkillBurstHeader"></h4>
                     </div>
                     <div class="wrapper3">
                         
@@ -74,10 +85,10 @@
                             <button id="btn-burst-skill" class="btn btn-dark">Burst Skill</button><br/>
                         </div>
                         <div id="wr3div2">
-                            <p  class="activeDesc"   hidden id="SkillRegularDesc">e</p>
-                            <p  class="activeDesc"   hidden id="Skill1Desc">f</p>
-                            <p  class="activeDesc"   hidden id="Skill2Desc">g</p>
-                            <p  class="activeDesc"   hidden id="SkillBurstDesc">h</p>
+                            <p  class="activeDesc"   hidden id="SkillRegularDesc"></p>
+                            <p  class="activeDesc"   hidden id="Skill1Desc"></p>
+                            <p  class="activeDesc"   hidden id="Skill2Desc"></p>
+                            <p  class="activeDesc"   hidden id="SkillBurstDesc"></p>
                         </div>
                         
                     </div>
@@ -113,7 +124,7 @@
         </div>
         
         
-
+        <!-- character image on the right -->
         <div id="character-FB">
             <div id="picture-carousel" class="carousel slide">
                 <div class="carousel-inner">
@@ -126,6 +137,7 @@
 
     </div>
 
+    <!-- offcanvas -->
     <div class="offcanvas offcanvas-start bg-dark navbar-light" tabindex="-2" id="offcanvas-contact">
         <div class="offcanvas-header">
             <h1 id="contact-canvas-header">Useful links</h5>
@@ -139,6 +151,69 @@
         </div>
     </div>
     
+    <!-- filter modal -->
+    <div class="modal fade" id="filterModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Research Filters</h5>
+            </div>
+            <div class="modal-body">
+              <div class="wrapperfilter ">
+                <div class="wrfi1">
+                    <span class="filtertitle">Weapon</span>
+                    <div class="filterWeapon alignleft filtercontent">
+                        <label><input value="SMG" type="checkbox"/> SubMachine Gun</label><br>
+                        <label><input value="RL" type="checkbox"/> Rocket Launcher</label><br>
+                        <label><input value="MG" type="checkbox"/> Machine Gun</label><br>
+                        <label><input value="AR" type="checkbox"/> Assault Rifle</label><br>
+                        <label><input value="SR" type="checkbox"/> Sniper Rifle</label><br>
+                        <label><input value="SG" type="checkbox"/> Shotgun</label>
+                    </div>
+                </div>
+                <div class="wrfi2">
+                    <span class="filtertitle">Manufacturer</span>
+                    <div class="filterManufacturer alignleft filtercontent">
+                        <label><input value="MI" type="checkbox"/> Missilis Industries</label><br>
+                        <label><input value="TL" type="checkbox"/> Tetra Line</label><br>
+                        <label><input value="EL" type="checkbox"/> Elysion</label><br>
+                        <label><input value="PI" type="checkbox"/> Pilgrim</label><br>
+                    </div>
+                </div>
+                <div class="wrfi3">
+                    <span class="filtertitle">Rarity</span>
+                    <div class="filterRarity alignleft filtercontent">
+                        <label><input value="SSR" type="checkbox"/> SSR</label><br>
+                        <label><input value="SR" type="checkbox"/> SR</label><br>
+                        <label><input value="R" type="checkbox"/> R</label><br>
+                    </div>
+                </div>
+                <div class="wrfi4">
+                    <span class="filtertitle">Class</span>
+                    <div class="filterClass alignleft filtercontent">
+                        <label><input value="ATK" type="checkbox"/> Attacker</label><br>
+                        <label><input value="DEF" type="checkbox"/> Defender</label><br>
+                        <label><input value="SUP" type="checkbox"/> Supporter</label><br>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer ml-auto">
+                <button 
+                class="btn btn-dark ml-auto"
+                data-bs-toggle="modal"
+                data-bs-target="#filterModal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- footer -->
+    <nav class="navbar-light bg-dark ">
+        <div class="footer">
+            <p>Nikke-db v0.1 or some other bullshit text just to make a footer</p>
+        </div>
+    </nav> 
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="js/character-data.js"></script>
     <script src="js/character-list.js"></script>
