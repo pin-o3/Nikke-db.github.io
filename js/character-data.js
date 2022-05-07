@@ -54,7 +54,6 @@ const formatSkill = (skill) =>{
     .replaceAll("[Apply on enemy] "     ,"To one enemy: ")
     .replaceAll("[Apply on target]"     ,"To one target:")
     .replaceAll("<color"                ,"<br><color")
-    .replaceAll("</color>"              ,".")
     .replaceAll("▲"                     ,"<span class='buffarrow'>▲</span>")
     .replaceAll("▼"                     ,"<span class='debuffarrow'>▼</span>")
     .replaceAll("ATK"                   ,"<span class='statatk'>ATK</span>" )
