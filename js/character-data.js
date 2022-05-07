@@ -165,8 +165,9 @@ const changeData = async (val) => {
 
     showSkill(currentSkill)
 
-    //show the class image, next to stats
+    //show the class image and drive tier, next to stats 
     document.querySelector("#class-img img").src = "images/classes/"+val.class+".png"
+    document.querySelector("#drive-img img").src = "images/drive/"+val.use_burst_skill+".png"
 
 }
 

@@ -17,11 +17,12 @@ async function initJSON(){
         liste_item.setAttribute('gun', val.weapon.weapon_type);
         liste_item.setAttribute('rarity', val.rarity);
         liste_item.setAttribute('classe', val.class);
+        liste_item.setAttribute('drive', val.use_burst_skill);
 
         liste_item.classList.add("charDiv")
         
         liste_item.addEventListener("click", (e)=>{
-            //document.querySelector("#character-search-input").scrollIntoView()
+            document.querySelector(".nav-btn").scrollIntoView()
             changeData(val)
         })
         div.appendChild(liste_item) //div character list
@@ -67,7 +68,10 @@ fmi     = false,
 ftl     = false,
 fpi     = false,
 fsup    = false,
-fr      = false
+fr      = false,
+fi      = false,
+fii     = false,
+fiii    = false
 
 const setFilters = (input) => {
     console.log(input.value)
@@ -88,6 +92,9 @@ const setFilters = (input) => {
         case "PI"   : fpi   = input.checked; break;
         case "SUP"  : fsup  = input.checked; break;
         case "R"    : fr    = input.checked; break;
+        case "I"    : fi    = input.checked; break;
+        case "II"   : fii   = input.checked; break;
+        case "III"  : fiii  = input.checked; break;
     }
 }
 
@@ -131,12 +138,22 @@ const checkGun = (unit) => {
     }
 }
 
+const checkDrive = (unit) =>{
+    if (!fi && !fii && !fiii ) return true
+    switch(unit){
+        case "Step1": if (fi)   return true; break;
+        case "Step2": if (fii)  return true; break;
+        case "Step3": if (fiii) return true; break;
+    }
+}
+
 const listHidden = () =>{
     for (let i = 0; i < allchar.length ; i++){
         if (checkManufacturer(allchar[i].getAttribute("manufacturer"))
             && checkRarity(allchar[i].getAttribute("rarity"))
             && checkClasse(allchar[i].getAttribute("classe"))
-            && checkGun(allchar[i].getAttribute("gun"))){
+            && checkGun(allchar[i].getAttribute("gun"))
+            && checkDrive(allchar[i].getAttribute("drive"))){
                 if (allchar[i].outerText.toLowerCase().includes(query.value.toLowerCase())){
                     allchar[i].hidden = false
                 }else{

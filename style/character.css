@@ -99,13 +99,18 @@
     display:flex;
     padding-top: 50px;
 }
-#class-img{
+#class-img,
+#drive-img{
     flex: 0 0 200px;
     text-align: center;
+}
+#drive-img img{
+    height: 10vh;
 }
 #stats-progresses{
     flex: 1
 }
+
 #charNameH1{
     text-align: center;
     margin-top: 5px;
@@ -176,7 +181,8 @@
 .wrfi1,
 .wrfi2,
 .wrfi3,
-.wrfi4{
+.wrfi4,
+.wrfi5{
     flex:1;
     
 }
@@ -197,6 +203,7 @@
 .filterManufacturer,
 .filterWeapon,
 .filterClass,
+.filterdrive,
 .filtertitle{
     margin-left:20%
 }
