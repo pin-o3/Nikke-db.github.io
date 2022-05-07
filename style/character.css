@@ -179,12 +179,13 @@
 }
 
 .wrfi1,
-.wrfi2,
+.wrfi2{
+    flex: 0 0 25%
+}
 .wrfi3,
 .wrfi4,
 .wrfi5{
-    flex:1;
-    
+    flex:1
 }
 
 .filtercontent{
@@ -203,7 +204,7 @@
 .filterManufacturer,
 .filterWeapon,
 .filterClass,
-.filterdrive,
+.filterDrive,
 .filtertitle{
     margin-left:20%
 }
