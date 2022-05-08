@@ -1,4 +1,6 @@
-
+.spine-player-button-icon-settings{
+    display:none
+}
 #player-container{
     height: 100vh;
     margin: -10px -7px -20px -10px

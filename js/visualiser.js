@@ -5,5 +5,6 @@ new spine.SpinePlayer("player-container", {
       skin: "00",
       skins: ["00"],
       backgroundColor: "#00000000",
-      alpha: true
+      alpha: true,
+      debug: false
 });
