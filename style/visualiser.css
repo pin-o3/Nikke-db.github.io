@@ -6,7 +6,7 @@
     display:none
 }
 #player-container{
-    height: 100vh;
+    
 }
 #visualiserMain{
     position:absolute;
@@ -18,3 +18,6 @@
     z-index: 1;
     background-color: var(--main-dark-theme);
 }
+.canvas{
+    display:none
+} 

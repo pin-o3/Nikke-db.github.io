@@ -6,5 +6,20 @@ new spine.SpinePlayer("player-container", {
       skins: ["00"],
       backgroundColor: "#00000000",
       alpha: true,
-      debug: false
+      debug: false,
 });
+
+document.querySelector("canvas").addEventListener("wheel", (e) => {
+      e.preventDefault()
+      canvas = document.querySelector("#player-container")
+      height = document.querySelector("#player-container").style.height.replaceAll("vh","")
+      switch(e.deltaY){
+            case 100:    
+            canvas.style.height = parseInt(height) + 10 +"vh" ;
+            break;
+            case -100:  
+            canvas.style.height = parseInt(height) - 10 +"vh"     ;
+            break;
+      }
+      console.log(height)
+})
