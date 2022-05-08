@@ -1,7 +1,20 @@
+:root{
+    --main-dark-theme: #212529;
+    --alt-dark-theme : #2f353a;
+}
 .spine-player-button-icon-settings{
     display:none
 }
 #player-container{
     height: 100vh;
-    margin: -10px -7px -20px -10px
+}
+#visualiserMain{
+    position:absolute;
+    top:10vh;
+    left:0;
+    height: 80vh;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    z-index: 1;
+    background-color: var(--main-dark-theme);
 }
