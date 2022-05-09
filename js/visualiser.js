@@ -16,13 +16,15 @@ document.querySelector("#player-container").style.left = "50vh"
        
       
        canvas = document.querySelector("#player-container")
-       height = document.querySelector("#player-container").style.height.replaceAll("vh","")
-       switch(e.deltaY){
-             case 100:   
+       height = canvas.style.height.replaceAll("vh","")
+   
+       switch(e.deltaY>0){
+             case true:   
              if (parseInt(canvas.style.height.replaceAll("vh",""))<=20) return false 
              canvas.style.height = parseInt(height) - 5 +"vh" ;
              break;
-             case -100:  
+             case false:  
+             if (parseInt(canvas.style.height.replaceAll("vh",""))>=500) return false 
              canvas.style.height = parseInt(height) + 5 +"vh"     ;
              break;
        }
