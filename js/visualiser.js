@@ -1,4 +1,4 @@
-new spine.SpinePlayer("player-container", {
+const spinee = new spine.SpinePlayer("player-container", {
       jsonUrl: "/l2d/c012/c012_00.json",
       atlasUrl: "/l2d/c012/c012_00.atlas",
       animation: "idle",
@@ -7,29 +7,90 @@ new spine.SpinePlayer("player-container", {
       backgroundColor: "#00000000",
       alpha: true,
       debug: false,
-});
 
-// document.addEventListener("wheel", (e) => {
-//       e.preventDefault()
-//       canvas = document.querySelector("#player-container")
-//       height = document.querySelector("#player-container").style.height.replaceAll("vh","")
-//       switch(e.deltaY){
-//             case 100:    
-//             canvas.style.height = parseInt(height) + 10 +"vh" ;
-//             break;
-//             case -100:  
-//             canvas.style.height = parseInt(height) - 10 +"vh"     ;
-//             break;
-//       }
-//       console.log(height)
-// })
-document.querySelector(".zoomin").addEventListener("click", ()=>{
+});
+document.querySelector(".spine-player-canvas").width = document.querySelector(".spine-player-canvas").height
+document.querySelector("#player-container").style.left = "50vh"
+
+ document.addEventListener("wheel", (e) => {
+       
+      
+       canvas = document.querySelector("#player-container")
+       height = document.querySelector("#player-container").style.height.replaceAll("vh","")
+       switch(e.deltaY){
+             case 100:   
+             if (parseInt(canvas.style.height.replaceAll("vh",""))<=20) return false 
+             canvas.style.height = parseInt(height) - 5 +"vh" ;
+             break;
+             case -100:  
+             canvas.style.height = parseInt(height) + 5 +"vh"     ;
+             break;
+       }
+ })
+document.querySelector(".zoomin").addEventListener("click", () => {
       let canvas = document.querySelector("#player-container")
-      let height = document.querySelector("#player-container").style.height.replaceAll("vh","")
-      canvas.style.height = parseInt(height) + 25 +"vh" ;
+      let height = document.querySelector("#player-container").style.height.replaceAll("vh", "")
+      canvas.style.height = parseInt(height) + 25 + "vh";
+      
 })
-document.querySelector(".zoomout").addEventListener("click", ()=>{
+document.querySelector(".zoomout").addEventListener("click", () => {
       let canvas = document.querySelector("#player-container")
-      let height = document.querySelector("#player-container").style.height.replaceAll("vh","")
-      canvas.style.height = parseInt(height) - 25 +"vh" ;
+      let height = document.querySelector("#player-container").style.height.replaceAll("vh", "")
+      canvas.style.height = parseInt(height) - 25 + "vh";
+      
 })
+
+document.querySelector(".spine-player-canvas").style.width = null
+
+document.querySelector(".spine-player-canvas").style.display = "inline"
+
+let move = false
+let oldx = "";
+let oldy = "";
+
+document.addEventListener("mousedown", (e) => {
+      if (e.target !== document.querySelector("#background-div") &&
+          e.target !== document.querySelector(".spine-player-canvas")){
+                return false
+          }
+      move = true
+      oldx = e.clientX;
+      oldy = e.clientY;
+})
+document.addEventListener("mouseup", (e) => {
+      oldx = ""
+      oldy = ""
+      move = false
+})
+
+let firstmove = false
+document.addEventListener("mousemove", (e) => {
+      if (move) {
+            
+            let newx = e.clientX
+            let newy = e.clientY
+            let stylel;
+            if (!firstmove){
+                  stylel = document.documentElement.clientHeight * 0.50
+                  firstmove = true
+            }else{
+                  stylel = document.querySelector("#player-container").style.left.replaceAll("px", "")
+            }
+            let stylet = document.querySelector("#player-container").style.top.replaceAll("px", "")
+            if (newx > oldx) {
+                  document.querySelector("#player-container").style.left = (parseInt(stylel) + (newx - oldx)) + "px"
+            }
+            if (newx < oldx) {
+                  document.querySelector("#player-container").style.left = (parseInt(stylel) + (newx - oldx)) + "px"
+            }
+            if (newy < oldy) {
+                  document.querySelector("#player-container").style.top = (parseInt(stylet) + (newy - oldy)) + "px"
+            }
+            if (newy > oldy) {
+                  document.querySelector("#player-container").style.top = (parseInt(stylet) + (newy - oldy)) + "px"
+            }
+            oldx = newx
+            oldy = newy
+      }
+}
+)
