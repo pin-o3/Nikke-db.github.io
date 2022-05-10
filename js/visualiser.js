@@ -1,5 +1,5 @@
 const spinee = new spine.SpinePlayer("player-container", {
-      jsonUrl: "/l2d/c012/c012_00.json",
+      skelUrl: "/l2d/c012/c012_00.skel",
       atlasUrl: "/l2d/c012/c012_00.atlas",
       animation: "idle",
       skin: "00",
