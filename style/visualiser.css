@@ -30,6 +30,7 @@ body {
     border-left: 2px white dashed;
     border-top-right-radius: 10px;
     padding-left: 5px;
+    padding-top: 5px;
     position: fixed;
     height: 60px;
     width: 163px;
@@ -87,10 +88,11 @@ body {
 }
 #colorChangePanel{
     background-color: white !important;
-    text-align: center;
-    color:black;
-    padding-top: 20px;
+    border-bottom-left-radius: 10px;
     padding-bottom: 20px;
+    text-align: center;
+    padding-top: 20px;
+    color:black;
 }
 .progress-rgb{
     background-color: #2f353a;

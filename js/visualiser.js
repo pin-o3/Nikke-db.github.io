@@ -27,7 +27,7 @@ initJSON()
 
 let currentspine = "";
 let currentid = ""
-let current_color= ""
+let current_color= "#2f353a"
 
 const changeSpine = (id) => {
 
@@ -219,3 +219,11 @@ document.querySelector("#inputhex").addEventListener("input",(e)=>{
       oldhex=newhex
 })
 
+document.querySelector(".hidebar").addEventListener("click",(e)=>{
+      let hidden = document.querySelector(".spine-player-controls").hidden
+      if (hidden){
+            document.querySelector(".spine-player-controls").hidden = false
+      } else{
+            document.querySelector(".spine-player-controls").hidden = true
+      }
+})
