@@ -1,16 +1,16 @@
-const spinee = new spine.SpinePlayer("player-container", {
-      skelUrl: "/l2d/c012/c012_00.skel",
-      atlasUrl: "/l2d/c012/c012_00.atlas",
+const nb = "c071"
+let spinee = new spine.SpinePlayer("player-container", {
+      skelUrl: "/l2d/"+nb+"/"+nb+"_00.skel",
+      atlasUrl: "/l2d/"+nb+"/"+nb+"_00.atlas",
       animation: "idle",
       skin: "00",
-      skins: ["00"],
       backgroundColor: "#00000000",
       alpha: true,
       debug: false,
-
 });
+
 document.querySelector(".spine-player-canvas").width = document.querySelector(".spine-player-canvas").height
-document.querySelector("#player-container").style.left = "50vh"
+//document.querySelector("#player-container").style.left = "50vh"
 
  document.addEventListener("wheel", (e) => {
        

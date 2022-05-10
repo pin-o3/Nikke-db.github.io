@@ -11935,8 +11935,8 @@ ${e.message}`, e);
         up: () => {
           if (target)
             target = null;
-          else if (config.showControls)
-          this.play()
+          // else if (config.showControls)
+          // this.play()
             //this.paused ? this.play() : this.pause();
         },
         dragged: (x, y) => {
