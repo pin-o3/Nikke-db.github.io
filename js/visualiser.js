@@ -26,6 +26,8 @@ async function initJSON(){
 initJSON()
 
 let currentspine = "";
+let currentid = ""
+let current_color= ""
 
 const changeSpine = (id) => {
 
@@ -33,30 +35,25 @@ const changeSpine = (id) => {
       // every listeners MUST be in changeSpine because
       // there are any spine currently, so the listened divs
       // doesn't exist, thus will break the code and nothing will really work
-      
-      
 
       document.querySelector("#player-container").innerHTML = " "
 
+      currentid = id
       currentspine = new spine.SpinePlayer("player-container", {
       skelUrl: "/l2d/"+id+"/"+id+"_00.skel",
       atlasUrl: "/l2d/"+id+"/"+id+"_00.atlas",
       animation: "idle",
       skin: "00",
-      backgroundColor: "#00000000",
+      backgroundColor: current_color,
       alpha: true,
       debug: false,
       });
 
       document.querySelector(".spine-player-canvas").width = document.querySelector(".spine-player-canvas").height
-
-      
-      
+ 
       document.querySelector(".spine-player-canvas").style.width = null
       
       document.querySelector(".spine-player-canvas").style.display = "inline"
-      
-      
       
 }
 
@@ -125,5 +122,100 @@ document.addEventListener("mousemove", (e) => {
             oldx = newx
             oldy = newy
       }
+})
+
+let rgbPanelVisible=document.querySelector("#colorChangePanel").hidden
+
+document.querySelector("#l2dbgcolorchanger button").addEventListener("click",(e)=>{
+      if (rgbPanelVisible){
+            document.querySelector("#colorChangePanel").hidden = false
+      }else{
+            document.querySelector("#colorChangePanel").hidden = true
+      }
+      rgbPanelVisible = document.querySelector("#colorChangePanel").hidden
+})
+
+let r = parseInt(document.querySelector("#customRangeRed").value)
+let g = parseInt(document.querySelector("#customRangeGreen").value)
+let b = parseInt(document.querySelector("#customRangeBlue").value)
+
+
+const rgb2hex = (v) => {
+      let val = v.toString(16);
+      return val.length == 1 ? "0" + val : val 
 }
-)
+
+let hex = "#"+rgb2hex(r)+rgb2hex(g)+rgb2hex(b)
+
+const updateHex = () => {
+      localhex = rgb2hex(r)+rgb2hex(g)+rgb2hex(b)
+      document.querySelector("#inputhex").value = localhex
+}
+
+const updateRgb = () => {
+      console.log("test")
+      document.querySelector("#customRangeRed").value = r
+      document.querySelector("#labelred").innerHTML = "Red - " + document.querySelector("#customRangeRed").value
+      document.querySelector("#customRangeGreen").value = g
+      document.querySelector("#labelgreen").innerHTML = "Green - " + document.querySelector("#customRangeGreen").value
+      document.querySelector("#customRangeBlue").value = b 
+      document.querySelector("#labelblue").innerHTML = "Blue - " + document.querySelector("#customRangeBlue").value
+}
+
+updateHex()
+
+const setColorPreview = (r,g,b)=> {
+      document.querySelector(".progress-rgb").style.backgroundColor = `rgb(${r},${g},${b})`
+}
+
+document.querySelector("#customRangeRed").addEventListener("input",(e)=>{
+      document.querySelector("#labelred").innerHTML = "Red - " + document.querySelector("#customRangeRed").value
+      r = parseInt(document.querySelector("#customRangeRed").value)
+      setColorPreview(r,g,b)
+      updateHex()
+})
+document.querySelector("#customRangeGreen").addEventListener("input",(e)=>{
+      document.querySelector("#labelgreen").innerHTML = "Green - " + document.querySelector("#customRangeGreen").value
+      g = parseInt(document.querySelector("#customRangeGreen").value)
+      setColorPreview(r,g,b)
+      updateHex()
+})
+document.querySelector("#customRangeBlue").addEventListener("input",(e)=>{
+      document.querySelector("#labelblue").innerHTML = "Blue - " + document.querySelector("#customRangeBlue").value
+      b = parseInt(document.querySelector("#customRangeBlue").value)
+      setColorPreview(r,g,b)
+      updateHex()
+})
+document.querySelector("#ColorApply").addEventListener("click", (e)=>{
+      document.querySelector("body").style.backgroundColor = `rgb(${r},${g},${b})`
+      hex = "#"+rgb2hex(r)+rgb2hex(g)+rgb2hex(b)
+      current_color = hex
+      if (currentid){
+            changeSpine(currentid)
+      }
+})
+
+let oldhex= document.querySelector("#inputhex").value
+
+document.querySelector("#inputhex").addEventListener("input",(e)=>{
+      currenthex = document.querySelector("#inputhex").value
+      newhex=""
+      for (let i = 0; i < currenthex.length; i++){
+            if (currenthex.charAt(i)==="#" || 
+                i > 5 || /^[g-zG-Z]+$/.test(currenthex.charAt(i))){
+                  
+            }else{
+                  newhex+=currenthex.charAt(i)
+            }
+      }
+      document.querySelector("#inputhex").value = newhex
+      if(newhex.length===6){
+            r = parseInt(newhex.slice(0,2), 16)
+            g = parseInt(newhex.slice(2,4), 16)
+            b = parseInt(newhex.slice(4,6), 16)
+            updateRgb()
+            setColorPreview(r,g,b)
+      }
+      oldhex=newhex
+})
+
