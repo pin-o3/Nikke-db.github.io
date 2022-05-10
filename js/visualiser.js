@@ -1,4 +1,4 @@
-const nb = "c071"
+const nb = "c150"
 let spinee = new spine.SpinePlayer("player-container", {
       skelUrl: "/l2d/"+nb+"/"+nb+"_00.skel",
       atlasUrl: "/l2d/"+nb+"/"+nb+"_00.atlas",
@@ -10,7 +10,6 @@ let spinee = new spine.SpinePlayer("player-container", {
 });
 
 document.querySelector(".spine-player-canvas").width = document.querySelector(".spine-player-canvas").height
-//document.querySelector("#player-container").style.left = "50vh"
 
  document.addEventListener("wheel", (e) => {
        
@@ -72,12 +71,9 @@ document.addEventListener("mousemove", (e) => {
             let newx = e.clientX
             let newy = e.clientY
             let stylel;
-            if (!firstmove){
-                  stylel = document.documentElement.clientHeight * 0.50
-                  firstmove = true
-            }else{
-                  stylel = document.querySelector("#player-container").style.left.replaceAll("px", "")
-            }
+
+            stylel = document.querySelector("#player-container").style.left.replaceAll("px", "")
+
             let stylet = document.querySelector("#player-container").style.top.replaceAll("px", "")
             if (newx > oldx) {
                   document.querySelector("#player-container").style.left = (parseInt(stylel) + (newx - oldx)) + "px"
