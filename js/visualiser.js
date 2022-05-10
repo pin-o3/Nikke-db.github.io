@@ -4,7 +4,7 @@ async function initJSON(){
     const response = await fetch('js/json/l2d.json');
     const json = await response.json()
     json.sort(function(a, b){
-        return a.id.localeCompare(b.id);
+        return a.name.localeCompare(b.name);
         
     })
     json.map((val)=>{
