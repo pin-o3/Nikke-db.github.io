@@ -1,4 +1,4 @@
-const nb = "c150"
+const nb = "c240"
 let spinee = new spine.SpinePlayer("player-container", {
       skelUrl: "/l2d/"+nb+"/"+nb+"_00.skel",
       atlasUrl: "/l2d/"+nb+"/"+nb+"_00.atlas",
