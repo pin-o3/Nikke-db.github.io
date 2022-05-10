@@ -20,6 +20,16 @@ body{
     position: fixed;
     bottom:0;
 }
+#visualiserTop{
+    width:163px;
+    border-top-right-radius: 10px;
+    background-color: var(--main-dark-theme);
+    position:fixed;
+    border-left: 2px white dashed;
+    top:4vh;
+    left:20px;
+    height: 60px;
+}
 #visualiserMain{
     position:fixed;
     top:10vh;
@@ -28,12 +38,35 @@ body{
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     z-index: 1;
+    overflow: auto;
     background-color: var(--main-dark-theme);
+    margin-left: 20px;
+    border-left: 2px white dashed
 }
+
 #background-div{
     position:fixed;
     width: 100vw;
     height: 100vh;
     z-index: -1;
+}
+.charDiv{
+    list-style-type: none;
+    margin-bottom: 10px;
+    transition: 0.5s;
+    border: var(--main-dark-theme) 2px solid;
+    border-bottom: gold 2px solid;
+    border-radius: 10px;
+}
+.charDiv:hover{
+    transition: 0.5s;
+    border: gold 2px solid;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: var(--alt-dark-theme) ;
+}
+.charDiv img{
+    height:50px;
+    border-radius: 10px;
 }
 
