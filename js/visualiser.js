@@ -58,14 +58,16 @@ const changeSpine = (id) => {
 }
 
 let move = false
-let bgimg = false
 let oldx = "";
 let oldy = "";
 
 document.addEventListener("wheel", (e) => {
        
       if (e.target !== document.querySelector("#background-div") &&
-          e.target !== document.querySelector(".spine-player-canvas")){
+          e.target !== document.querySelector(".spine-player-canvas")&&
+          e.target !== document.querySelector("#nikketxtgrid")&&
+          e.target !== document.querySelector("#nikketxtgrid div")&&
+          e.target !== document.querySelector("body")){
                 return false
           }
        canvas = document.querySelector("#player-container")
@@ -84,8 +86,12 @@ document.addEventListener("wheel", (e) => {
  })
 
 document.addEventListener("mousedown", (e) => {
+      console.log(e.target)
       if (e.target !== document.querySelector("#background-div") &&
-          e.target !== document.querySelector(".spine-player-canvas")){
+          e.target !== document.querySelector(".spine-player-canvas")&&
+          e.target !== document.querySelector("#nikketxtgrid")&&
+          e.target !== document.querySelector("#nikketxtgrid div")&&
+          e.target !== document.querySelector("body")){
                 return false
           }
       move = true
@@ -195,7 +201,7 @@ document.querySelector("#customRangeBlue").addEventListener("input",(e)=>{
 document.querySelector("#ColorApply").addEventListener("click", (e)=>{
       document.querySelector("body").style.backgroundColor = `rgb(${r},${g},${b})`
       hex = "#"+rgb2hex(r)+rgb2hex(g)+rgb2hex(b)
-      if (bgimg){
+      if (document.querySelector("#checkboxTransparent").checked){
             current_color = "#00000000"
       }else{
             current_color = hex
@@ -255,7 +261,7 @@ document.querySelector(".changebgimg").addEventListener("click",(e)=>{
 })
 
 document.querySelector("#imageinput").addEventListener("input",(e)=>{
-      bgimg = true
+
       const bgimage = document.querySelector("#imageinput").files[0]
       const reader = new FileReader()
 
@@ -266,16 +272,15 @@ document.querySelector("#imageinput").addEventListener("input",(e)=>{
       
       reader.readAsDataURL(bgimage)
       
-      current_color="#00000000"
       if(currentid){
             changeSpine(currentid)
       }
 })
 
 document.querySelector("#removeimg").addEventListener("click",(e)=>{
-      bgimg = false
+      
       document.querySelector("body").style.backgroundImage = ""
-      current_color=hex
+      
       if(currentid){
             changeSpine(currentid)
       }
@@ -322,3 +327,15 @@ for (let i = 0; i<bgsizeid.length; i++){
             document.querySelector("body").style.backgroundSize = bgsizeval[i]
       })
 }
+
+let bgtxthidden = false
+
+document.querySelector(".hidetxt").addEventListener("click",(e)=>{
+      if (bgtxthidden){
+            document.querySelector("#nikketxtgrid").hidden=false
+            bgtxthidden = false
+      }else{
+            document.querySelector("#nikketxtgrid").hidden=true
+            bgtxthidden = true
+      }
+})
