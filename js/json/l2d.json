@@ -27,7 +27,7 @@
   {
     "name": "Signa",
     "id": "c022",
-    "available": "no"
+    "available": "yes"
   },
   {
     "name": "Polly",
@@ -62,7 +62,7 @@
   {
     "name": "Mica",
     "id": "c061",
-    "available": "no"
+    "available": "yes"
   },
   {
     "name": "Bridget",
@@ -77,7 +77,7 @@
   {
     "name": "Diesel",
     "id": "c072",
-    "available": "no"
+    "available": "yes"
   },
   {
     "name": "Carrie",
@@ -92,7 +92,7 @@
   {
     "name": "Litera",
     "id": "c082",
-    "available": "no"
+    "available": "yes"
   },
   {
     "name": "Emma",
@@ -102,7 +102,7 @@
   {
     "name": "Vesti",
     "id": "c091",
-    "available": "no"
+    "available": "yes"
   },
   {
     "name": "Campion",
@@ -272,7 +272,7 @@
   {
     "name": "Scarlet",
     "id": "c222",
-    "available": "no"
+    "available": "yes"
   },
   {
     "name": "Harran",
@@ -312,6 +312,11 @@
   {
     "name": "c250",
     "id": "c250",
+    "available": "yes"
+  },
+  {
+    "name": "c251",
+    "id": "c251",
     "available": "yes"
   },
   {
@@ -402,7 +407,7 @@
   {
     "name": "Product08",
     "id": "c302",
-    "available": "no"
+    "available": "yes"
   },
   {
     "name": "Product12",
@@ -417,7 +422,7 @@
   {
     "name": "iDoll Ocean",
     "id": "c305",
-    "available": "no"
+    "available": "yes"
   },
   {
     "name": "SoldierOW",
@@ -510,8 +515,18 @@
     "available": "yes"
   },
   {
+    "name": "c901",
+    "id": "c901",
+    "available": "yes"
+  },
+  {
     "name": "c902",
     "id": "c902",
+    "available": "yes"
+  },
+  {
+    "name": "c903",
+    "id": "c903",
     "available": "yes"
   },
   {
