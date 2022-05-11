@@ -4,7 +4,11 @@
 }
 
 body {
+    background-repeat: no-repeat;
+    background-position-x:center;
+    background-position-y:center;
     overflow: hidden;
+    height:100vh;
 }
 
 .spine-player-button-icon-settings {
@@ -86,13 +90,19 @@ body {
     position: fixed;
     right:0
 }
-#colorChangePanel{
+
+#colorChangePanel,
+#imageChangePanel{
     background-color: white !important;
     border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
     padding-bottom: 20px;
     text-align: center;
     padding-top: 20px;
     color:black;
+}
+#imageChangePanel button{
+    margin-top: 10px
 }
 .progress-rgb{
     background-color: #2f353a;

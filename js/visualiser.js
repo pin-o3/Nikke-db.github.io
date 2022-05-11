@@ -27,7 +27,7 @@ initJSON()
 
 let currentspine = "";
 let currentid = ""
-let current_color= "#2f353a"
+let current_color= "#00000000"
 
 const changeSpine = (id) => {
 
@@ -58,6 +58,7 @@ const changeSpine = (id) => {
 }
 
 let move = false
+let bgimg = false
 let oldx = "";
 let oldy = "";
 
@@ -124,9 +125,14 @@ document.addEventListener("mousemove", (e) => {
       }
 })
 
+// CHANGE BG COLOR --------------------------------------------------------------------------------------------------------------------
+
 let rgbPanelVisible=document.querySelector("#colorChangePanel").hidden
+let imgPanelVisible = document.querySelector("#colorChangePanel").hidden
 
 document.querySelector("#l2dbgcolorchanger button").addEventListener("click",(e)=>{
+      document.querySelector("#imageChangePanel").hidden = true
+            imgPanelVisible = true
       if (rgbPanelVisible){
             document.querySelector("#colorChangePanel").hidden = false
       }else{
@@ -189,7 +195,11 @@ document.querySelector("#customRangeBlue").addEventListener("input",(e)=>{
 document.querySelector("#ColorApply").addEventListener("click", (e)=>{
       document.querySelector("body").style.backgroundColor = `rgb(${r},${g},${b})`
       hex = "#"+rgb2hex(r)+rgb2hex(g)+rgb2hex(b)
-      current_color = hex
+      if (bgimg){
+            current_color = "#00000000"
+      }else{
+            current_color = hex
+      }
       if (currentid){
             changeSpine(currentid)
       }
@@ -219,6 +229,8 @@ document.querySelector("#inputhex").addEventListener("input",(e)=>{
       oldhex=newhex
 })
 
+// HIDE BOTTOM BAR ------------------------------------------------------------------------------------------------------
+
 document.querySelector(".hidebar").addEventListener("click",(e)=>{
       let hidden = document.querySelector(".spine-player-controls").hidden
       if (hidden){
@@ -227,3 +239,86 @@ document.querySelector(".hidebar").addEventListener("click",(e)=>{
             document.querySelector(".spine-player-controls").hidden = true
       }
 })
+
+// CHANGE BACKGROUND IMAGE ----------------------------------------------------------------------------------------------
+
+document.querySelector(".changebgimg").addEventListener("click",(e)=>{
+      document.querySelector("#colorChangePanel").hidden = true
+      rgbPanelVisible = document.querySelector("#colorChangePanel").hidden
+      if (imgPanelVisible){
+            document.querySelector("#imageChangePanel").hidden = false
+            imgPanelVisible = false
+      }else{
+            document.querySelector("#imageChangePanel").hidden = true
+            imgPanelVisible = true
+      }
+})
+
+document.querySelector("#imageinput").addEventListener("input",(e)=>{
+      bgimg = true
+      const bgimage = document.querySelector("#imageinput").files[0]
+      const reader = new FileReader()
+
+      reader.onload = function(e) {
+            console.log(e.target.result)
+            document.querySelector("body").style.backgroundImage = "url("+e.target.result+")";
+      }
+      
+      reader.readAsDataURL(bgimage)
+      
+      current_color="#00000000"
+      if(currentid){
+            changeSpine(currentid)
+      }
+})
+
+document.querySelector("#removeimg").addEventListener("click",(e)=>{
+      bgimg = false
+      document.querySelector("body").style.backgroundImage = ""
+      current_color=hex
+      if(currentid){
+            changeSpine(currentid)
+      }
+})
+
+const positionsid=["tl","tt","tr","ml","mm","mr","bl","bb","br"]
+const positionsx=["0","center","100%","0","center","100%","0","center","100%"]
+const positionsy=["0","0","0","center","center","center","100%","100%","100%"]
+
+let currentprimary = document.querySelector("#mm")
+
+for (let i = 0 ; i < positionsid.length ; i++ ) {
+      document.querySelector("#"+positionsid[i]).addEventListener("click",(e)=>{
+
+            document.querySelector("#"+positionsid[i]).classList.add("btn-info")
+            document.querySelector("#"+positionsid[i]).classList.remove("btn-success")
+
+            currentprimary.classList.add("btn-success")
+            currentprimary.classList.remove("btn-info")
+
+            currentprimary = document.querySelector("#"+positionsid[i])
+
+            document.querySelector("body").style.backgroundPositionX = positionsx[i]
+            document.querySelector("body").style.backgroundPositionY = positionsy[i]
+      })
+}
+
+const bgsizeid = ["coverimg","containimg","autoimg"]
+const bgsizeval= ["cover","contain","auto"]
+
+let currentbgsize = document.querySelector("#autoimg")
+
+for (let i = 0; i<bgsizeid.length; i++){
+      document.querySelector("#"+bgsizeid[i]).addEventListener("click",(e)=>{
+
+            document.querySelector("#"+bgsizeid[i]).classList.add("btn-info")
+            document.querySelector("#"+bgsizeid[i]).classList.remove("btn-success")
+
+            currentbgsize.classList.add("btn-success")
+            currentbgsize.classList.remove("btn-info")
+
+            currentbgsize = document.querySelector("#"+bgsizeid[i])
+            
+            document.querySelector("body").style.backgroundSize = bgsizeval[i]
+      })
+}
