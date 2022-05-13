@@ -28,6 +28,7 @@ initJSON()
 let currentspine = "";
 let currentid = ""
 let current_color= "#00000000"
+let current_l2d = "cover"
 
 const changeSpine = (id) => {
 
@@ -39,15 +40,52 @@ const changeSpine = (id) => {
       document.querySelector("#player-container").innerHTML = " "
 
       currentid = id
-      currentspine = new spine.SpinePlayer("player-container", {
-      skelUrl: "/l2d/"+id+"/"+id+"_00.skel",
-      atlasUrl: "/l2d/"+id+"/"+id+"_00.atlas",
-      animation: "idle",
-      skin: "00",
-      backgroundColor: current_color,
-      alpha: true,
-      debug: false,
-      });
+      
+      if (current_l2d==="fb"){
+            currentspine = new spine.SpinePlayer("player-container", {
+                  skelUrl: "/l2d/"+id+"/"+id+"_00.skel",
+                  atlasUrl: "/l2d/"+id+"/"+id+"_00.atlas",
+                  animation: "idle",
+                  skin: "00",
+                  backgroundColor: current_color,
+                  alpha: true,
+                  debug: false,
+                  });
+      }
+      if(current_l2d==="cover"){
+            currentspine = new spine.SpinePlayer("player-container", {
+                  skelUrl: "/l2d/"+id+"/cover/"+id+"_cover_00.skel",
+                  atlasUrl: "/l2d/"+id+"/cover/"+id+"_cover_00.atlas",
+                  skin: "00",
+                  backgroundColor: current_color,
+                  animation: "cover_idle",
+                  alpha: true,
+                  debug: false,
+            })
+      }
+      if(current_l2d==="aim"){
+            currentspine = new spine.SpinePlayer("player-container", {
+                  skelUrl: "/l2d/"+id+"/aim/"+id+"_aim_00.skel",
+                  atlasUrl: "/l2d/"+id+"/aim/"+id+"_aim_00.atlas",
+                  skin: "00",
+                  backgroundColor: current_color,
+                  animation: "aim_idle",
+                  alpha: true,
+                  debug: false,
+                  
+            })
+      }
+      if(current_l2d==="skill"){
+            currentspine = new spine.SpinePlayer("player-container", {
+                  skelUrl: "/l2d/"+id+"/skill/"+id+"_skillcut.skel",
+                  atlasUrl: "/l2d/"+id+"/skill/"+id+"_skillcut.atlas",
+                  backgroundColor: current_color,
+                  alpha: true,
+                  debug: false,
+                  
+            })
+      }
+      
 
       document.querySelector(".spine-player-canvas").width = document.querySelector(".spine-player-canvas").height
  
@@ -56,6 +94,8 @@ const changeSpine = (id) => {
       document.querySelector(".spine-player-canvas").style.display = "inline"
       
 }
+
+changeSpine("c070")
 
 let move = false
 let oldx = "";
