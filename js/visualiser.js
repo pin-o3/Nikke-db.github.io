@@ -28,7 +28,7 @@ initJSON()
 let currentspine = "";
 let currentid = ""
 let current_color= "#00000000"
-let current_l2d = "cover"
+let current_l2d = "fb"
 
 const changeSpine = (id) => {
 
@@ -95,7 +95,7 @@ const changeSpine = (id) => {
       
 }
 
-changeSpine("c070")
+//changeSpine("c070")
 
 let move = false
 let oldx = "";
