@@ -3,10 +3,10 @@ const div = document.getElementById("visualiserMain");
 async function initJSON() {
       const response = await fetch('js/json/l2d.json');
       const json = await response.json()
-      json.sort(function (a, b) {
-            return a.name.localeCompare(b.name);
+      // json.sort(function (a, b) {
+      //       return a.name.localeCompare(b.name);
 
-      })
+      // })
       json.map((val) => {
             if (val.available === "no") return false
             const liste_item = document.createElement("li");
@@ -94,8 +94,8 @@ const changeSpine = (id) => {
       document.querySelector(".spine-player-canvas").style.display = "inline"
 
 }
-let current_l2d = "fb"
-// changeSpine("c308")
+let current_l2d = "aim"
+changeSpine("c013")
 
 let move = false
 let oldx = "";
