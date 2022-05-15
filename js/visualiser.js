@@ -242,11 +242,8 @@ document.querySelector("#customRangeBlue").addEventListener("input", (e) => {
 document.querySelector("#ColorApply").addEventListener("click", (e) => {
       document.querySelector("body").style.backgroundColor = `rgb(${r},${g},${b})`
       hex = "#" + rgb2hex(r) + rgb2hex(g) + rgb2hex(b)
-      if (document.querySelector("#checkboxTransparent").checked) {
-            current_color = "#00000000"
-      } else {
-            current_color = hex
-      }
+      current_color = hex
+      
       if (currentid) {
             changeSpine(currentid)
       }
