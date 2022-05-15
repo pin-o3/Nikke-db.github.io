@@ -27,7 +27,7 @@ initJSON()
 
 let currentspine = "";
 let currentid = ""
-let current_color = "#00000000"
+let current_color = "#2f353a"
 
 
 const changeSpine = (id) => {
@@ -48,7 +48,7 @@ const changeSpine = (id) => {
                   animation: "idle",
                   skin: "00",
                   backgroundColor: current_color,
-                  alpha: true,
+                  alpha: false,
                   debug: false,
             });
       }
@@ -59,7 +59,7 @@ const changeSpine = (id) => {
                   skin: "00",
                   backgroundColor: current_color,
                   animation: "cover_idle",
-                  alpha: true,
+                  alpha: false,
                   debug: false,
             })
       }
@@ -68,9 +68,9 @@ const changeSpine = (id) => {
                   skelUrl: "/l2d/" + id + "/aim/" + id + "_aim_00.skel",
                   atlasUrl: "/l2d/" + id + "/aim/" + id + "_aim_00.atlas",
                   skin: "00",
-                  backgroundColor: current_color,
                   animation: "aim_idle",
-                  alpha: true,
+                  backgroundColor: current_color,
+                  alpha: false,
                   debug: false,
 
             })
@@ -179,8 +179,6 @@ let rgbPanelVisible = document.querySelector("#colorChangePanel").hidden
 let imgPanelVisible = document.querySelector("#colorChangePanel").hidden
 
 document.querySelector("#l2dbgcolorchanger button").addEventListener("click", (e) => {
-      document.querySelector("#imageChangePanel").hidden = true
-      imgPanelVisible = true
       if (rgbPanelVisible) {
             document.querySelector("#colorChangePanel").hidden = false
       } else {
@@ -289,100 +287,6 @@ document.querySelector(".hidebar").addEventListener("click", (e) => {
       }
 })
 
-// CHANGE BACKGROUND IMAGE ----------------------------------------------------------------------------------------------
-
-document.querySelector(".changebgimg").addEventListener("click", (e) => {
-      document.querySelector("#colorChangePanel").hidden = true
-      rgbPanelVisible = document.querySelector("#colorChangePanel").hidden
-      if (imgPanelVisible) {
-            document.querySelector("#imageChangePanel").hidden = false
-            imgPanelVisible = false
-      } else {
-            document.querySelector("#imageChangePanel").hidden = true
-            imgPanelVisible = true
-      }
-})
-
-document.querySelector("#imageinput").addEventListener("input", (e) => {
-
-      const bgimage = document.querySelector("#imageinput").files[0]
-      const reader = new FileReader()
-
-      reader.onload = function (e) {
-            console.log(e.target.result)
-            document.querySelector("body").style.backgroundImage = "url(" + e.target.result + ")";
-      }
-
-      reader.readAsDataURL(bgimage)
-
-      if (currentid) {
-            changeSpine(currentid)
-      }
-})
-
-document.querySelector("#removeimg").addEventListener("click", (e) => {
-
-      document.querySelector("body").style.backgroundImage = ""
-
-      if (currentid) {
-            changeSpine(currentid)
-      }
-})
-
-const positionsid = ["tl", "tt", "tr", "ml", "mm", "mr", "bl", "bb", "br"]
-const positionsx = ["0", "center", "100%", "0", "center", "100%", "0", "center", "100%"]
-const positionsy = ["0", "0", "0", "center", "center", "center", "100%", "100%", "100%"]
-
-let currentprimary = document.querySelector("#mm")
-
-for (let i = 0; i < positionsid.length; i++) {
-      document.querySelector("#" + positionsid[i]).addEventListener("click", (e) => {
-
-            document.querySelector("#" + positionsid[i]).classList.add("btn-info")
-            document.querySelector("#" + positionsid[i]).classList.remove("btn-success")
-
-            currentprimary.classList.add("btn-success")
-            currentprimary.classList.remove("btn-info")
-
-            currentprimary = document.querySelector("#" + positionsid[i])
-
-            document.querySelector("body").style.backgroundPositionX = positionsx[i]
-            document.querySelector("body").style.backgroundPositionY = positionsy[i]
-      })
-}
-
-const bgsizeid = ["coverimg", "containimg", "autoimg"]
-const bgsizeval = ["cover", "contain", "auto"]
-
-let currentbgsize = document.querySelector("#autoimg")
-
-for (let i = 0; i < bgsizeid.length; i++) {
-      document.querySelector("#" + bgsizeid[i]).addEventListener("click", (e) => {
-
-            document.querySelector("#" + bgsizeid[i]).classList.add("btn-info")
-            document.querySelector("#" + bgsizeid[i]).classList.remove("btn-success")
-
-            currentbgsize.classList.add("btn-success")
-            currentbgsize.classList.remove("btn-info")
-
-            currentbgsize = document.querySelector("#" + bgsizeid[i])
-
-            document.querySelector("body").style.backgroundSize = bgsizeval[i]
-      })
-}
-
-let bgtxthidden = false
-
-document.querySelector(".hidetxt").addEventListener("click", (e) => {
-      if (bgtxthidden) {
-            document.querySelector("#nikketxtgrid").hidden = false
-            bgtxthidden = false
-      } else {
-            document.querySelector("#nikketxtgrid").hidden = true
-            bgtxthidden = true
-      }
-})
-
 
 //hide all UI
 
@@ -391,7 +295,7 @@ document.querySelector(".hideUI").addEventListener("click",(e)=>{
       document.querySelector("#visualiserTop").hidden = true
       document.querySelector("#visualiserMain").hidden = true
       document.querySelector("#l2dbgcolorchanger").hidden = true
-      document.querySelector("#nikketxtgrid").hidden = true
+      // document.querySelector("#nikketxtgrid").hidden = true
       document.querySelector(".spine-player-controls").hidden = true
 
 })
@@ -402,7 +306,7 @@ document.addEventListener("keypress",(e)=>{
             document.querySelector("#visualiserTop").hidden = false
       document.querySelector("#visualiserMain").hidden = false
       document.querySelector("#l2dbgcolorchanger").hidden = false
-      document.querySelector("#nikketxtgrid").hidden = false
+      // document.querySelector("#nikketxtgrid").hidden = false
       document.querySelector(".spine-player-controls").hidden = false
       }
 })
