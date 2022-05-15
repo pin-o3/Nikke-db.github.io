@@ -101,9 +101,10 @@ let move = false
 let oldx = "";
 let oldy = "";
 
+// zoom with mouse wheel, only on wanted divs ( so it doesn't zoom while browsing units )
 document.addEventListener("wheel", (e) => {
 
-      if (e.target !== document.querySelector("#background-div") &&
+      if (  e.target !== document.querySelector("#background-div") &&
             e.target !== document.querySelector(".spine-player-canvas") &&
             e.target !== document.querySelector("#nikketxtgrid") &&
             e.target !== document.querySelector("#nikketxtgrid div") &&
@@ -126,8 +127,8 @@ document.addEventListener("wheel", (e) => {
 })
 
 document.addEventListener("mousedown", (e) => {
-      console.log(e.target)
-      if (e.target !== document.querySelector("#background-div") &&
+
+      if (  e.target !== document.querySelector("#background-div") &&
             e.target !== document.querySelector(".spine-player-canvas") &&
             e.target !== document.querySelector("#nikketxtgrid") &&
             e.target !== document.querySelector("#nikketxtgrid div") &&
@@ -154,6 +155,7 @@ document.addEventListener("mousemove", (e) => {
             stylel = document.querySelector("#player-container").style.left.replaceAll("px", "")
 
             let stylet = document.querySelector("#player-container").style.top.replaceAll("px", "")
+
             if (newx > oldx) {
                   document.querySelector("#player-container").style.left = (parseInt(stylel) + (newx - oldx)) + "px"
             }
@@ -204,8 +206,10 @@ const updateHex = () => {
       document.querySelector("#inputhex").value = localhex
 }
 
+updateHex()
+
 const updateRgb = () => {
-      console.log("test")
+
       document.querySelector("#customRangeRed").value = r
       document.querySelector("#labelred").innerHTML = "Red - " + document.querySelector("#customRangeRed").value
       document.querySelector("#customRangeGreen").value = g
@@ -214,7 +218,6 @@ const updateRgb = () => {
       document.querySelector("#labelblue").innerHTML = "Blue - " + document.querySelector("#customRangeBlue").value
 }
 
-updateHex()
 
 const setColorPreview = (r, g, b) => {
       document.querySelector(".progress-rgb").style.backgroundColor = `rgb(${r},${g},${b})`
@@ -379,3 +382,36 @@ document.querySelector(".hidetxt").addEventListener("click", (e) => {
             bgtxthidden = true
       }
 })
+
+
+//hide all UI
+
+document.querySelector(".hideUI").addEventListener("click",(e)=>{
+      alert("To turn the UI back on, press the Enter key of your keyboard")
+      document.querySelector("#visualiserTop").hidden = true
+      document.querySelector("#visualiserMain").hidden = true
+      document.querySelector("#l2dbgcolorchanger").hidden = true
+      document.querySelector("#nikketxtgrid").hidden = true
+      document.querySelector(".spine-player-controls").hidden = true
+
+})
+// show all UI 
+
+document.addEventListener("keypress",(e)=>{
+      if (e.key==="Enter"){
+            document.querySelector("#visualiserTop").hidden = false
+      document.querySelector("#visualiserMain").hidden = false
+      document.querySelector("#l2dbgcolorchanger").hidden = false
+      document.querySelector("#nikketxtgrid").hidden = false
+      document.querySelector(".spine-player-controls").hidden = false
+      }
+})
+
+const arraypose = ["fb","cover","aim"]
+
+for (let i = 0; i< arraypose.length; i++){
+      document.querySelector("#"+arraypose[i]).addEventListener("click",(e)=>{
+            current_l2d = arraypose[i]
+            changeSpine(currentid)
+      })
+}

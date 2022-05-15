@@ -21,18 +21,25 @@
             <div id="visualiserTop">
                 <span>
                     <a href="/" style="text-decoration: none;">
-                        <button class="btn btn-info hidelist" >
+                        <button class="btn btn-info" >
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
                                 <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
                             </svg>
                         </button>
                     </a>
-                    <button class="btn btn-success hidelist" >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
-                          </svg>
-                    </button>
+                    <div class="btn-group dropend">
+                        <button class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Change Pose
+                        </button>
+                        <div class="dropdown-menu posedropdown">
+                            <span id="fb">Full Body</span><br>
+                            <span id="cover">Cover</span><br>
+                            <span id="aim">Aim</span>
+                        </div>
+                    </div>
+                    
+                    
                 </span>
             </div>
 
@@ -110,8 +117,9 @@
                         
                         <button class="btn btn-danger" id="removeimg">Reset</button>
                     </div>
-                    <button class="btn btn-info hidebar" >Hide/Show Browsing Bar</button><br>
-                    <button class="btn btn-secondary hidetxt" >Hide/Show Background Text</button>
+                    <button class="btn btn-secondary hidebar" >Hide/Show Browsing Bar</button><br>
+                    <button class="btn btn-secondary hidetxt" >Hide/Show Background Text</button><br>
+                    <button class="btn btn-secondary hideUI" >Hide all UI</button>
                 
             </div>
             <div id="visualiserMain"></div>
@@ -127,6 +135,7 @@
                 <div class="txtgridbr">NIKKE</div>
             </div>
             
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <script src="js/spine-player.js"></script>
     <script src="js/visualiser.js"></script>
