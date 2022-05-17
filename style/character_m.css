@@ -102,11 +102,11 @@
 #class-img,
 #drive-img{
     text-align: center;
-    flex: 0 0 200px;
+    flex: 1;
 }
 
 #stats-progresses{
-    flex: 1
+    margin-top: 25px;
 }
 
 #charNameH1{

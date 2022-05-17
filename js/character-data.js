@@ -132,23 +132,26 @@ const changeData = async (val) => {
     // change the stat progress bars with written values, and different sizes 
     // lazy to automate using arrays and several if & switch
 
-    document.querySelector("#prog-min-hp").innerHTML  = "Lv.1 Health: "+minhp
-    document.querySelector("#prog-min-hp").style.width= progress_value(minhp, "hp")+"%"
-
-    document.querySelector("#prog-max-hp").innerHTML  = "Lv."+maxlvl+" Health: "+maxhp
-    document.querySelector("#prog-max-hp").style.width= progress_value(maxhp, "hp")+"%"
-
-    document.querySelector("#prog-min-att").innerHTML = "Lv.1 Attack: "+minatt
-    document.querySelector("#prog-min-att").style.width= progress_value(minatt, "att")+"%"
     
-    document.querySelector("#prog-max-att").innerHTML = "Lv."+maxlvl+" Attack: "+maxatt
-    document.querySelector("#prog-max-att").style.width= progress_value(maxatt, "att")+"%"
 
-    document.querySelector("#prog-min-def").innerHTML = "Lv.1 Defense: "+mindef
-    document.querySelector("#prog-min-def").style.width= progress_value(mindef, "def")+"%"
+        document.querySelector(".prog-min-hp").innerHTML  = "Lv.1 Health: "+minhp
+        document.querySelector(".prog-min-hp").style.width= progress_value(minhp, "hp")+"%"
 
-    document.querySelector("#prog-max-def").innerHTML = "Lv."+maxlvl+" Defense: "+maxdef
-    document.querySelector("#prog-max-def").style.width= progress_value(maxdef, "def")+"%"
+        document.querySelector(".prog-max-hp").innerHTML  = "Lv."+maxlvl+" Health: "+maxhp
+        document.querySelector(".prog-max-hp").style.width= progress_value(maxhp, "hp")+"%"
+
+        document.querySelector(".prog-min-att").innerHTML = "Lv.1 Attack: "+minatt
+        document.querySelector(".prog-min-att").style.width= progress_value(minatt, "att")+"%"
+
+        document.querySelector(".prog-max-att").innerHTML = "Lv."+maxlvl+" Attack: "+maxatt
+        document.querySelector(".prog-max-att").style.width= progress_value(maxatt, "att")+"%"
+
+        document.querySelector(".prog-min-def").innerHTML = "Lv.1 Defense: "+mindef
+        document.querySelector(".prog-min-def").style.width= progress_value(mindef, "def")+"%"
+
+        document.querySelector(".prog-max-def").innerHTML = "Lv."+maxlvl+" Defense: "+maxdef
+        document.querySelector(".prog-max-def").style.width= progress_value(maxdef, "def")+"%"
+    
 
     // show skills
     hideSkill()

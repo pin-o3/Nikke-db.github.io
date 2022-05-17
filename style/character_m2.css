@@ -14,9 +14,9 @@
 #main-div-character-list{
     background-color: var(--main-dark-theme);
     border-left: white 2px dotted;
-    margin: 25px 0 25px 40vw;
+    margin: 25px 0 25px 25%;
     
-    width:20%;
+    width: 50%;
     height: 50vh;
     overflow: auto;
 }
@@ -62,7 +62,7 @@
     border-bottom: solid var(--main-dark-theme) 2px;
     border-top: solid var(--main-dark-theme) 2px;
     transition: 0.5s;
-    width: 100%;
+    width: 75%;
 }
 #wr3div1 button:hover{
     border-bottom: solid gold 2px;
@@ -75,7 +75,7 @@
 #wr3div2{
     background-color: var(--main-dark-theme);
     padding: 20px 25px 0 25px;
-    margin: 0 25px 0 25px;
+    margin: 0 25px 0 -5%;
     border-radius: 15px;
     text-align: center;
     overflow:auto;
@@ -89,11 +89,11 @@
 #class-img,
 #drive-img{
     text-align: center;
-    flex: 0 0 200px;
+    flex: 1;
 }
 
 #stats-progresses{
-    flex: 1
+    margin-top: 25px;
 }
 
 #charNameH1{
@@ -143,41 +143,6 @@
     position: relative;
     text-align:left;
     top:0;
-}
-#filterModal{
-    margin-top: 15vh; 
-}
-#filterModal .modal-content{
-   background-color: var(--main-dark-theme);
-   
-}
-#filterModal .modal-footer {
-    justify-content: space-between;
-}
-#filterModal .modal-footer button{
-    border-bottom:white solid 2px;
-}
-.wrapperfilter{
-    display:flex
-}
-.wrfi1,
-.wrfi2{
-    flex: 0 0 25%
-}
-
-.wrfi3,
-.wrfi4,
-.wrfi5{
-    flex:1
-}
-
-.filtercontent{
-    user-select: none;
-    margin-top: 10px;
-}
-.filtercontent label:hover,
-.filtercontent input:hover{
-    cursor: pointer;
 }
 
 .alignleft{
