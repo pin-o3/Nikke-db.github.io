@@ -48,21 +48,26 @@
 }
 .skill-titles{
     text-align: center;
+    position: absolute;
+    margin-top: 180px;
+    width:100%
 }
 .wrapper3{
-    display:flex;
+    /* display:flex; */
 }
 #wr3div1{
     border-left:solid white 3px;
-    margin-top:20px;
-    flex: 0 0 200px;
+    margin-left: 25%;
+    /* flex: 0 0 200px; */
     height:160px;
+    width: 50%;
 }
 #wr3div1 button{
     border-bottom: solid var(--main-dark-theme) 2px;
     border-top: solid var(--main-dark-theme) 2px;
     transition: 0.5s;
-    width: 75%;
+    width: 100%;
+    
 }
 #wr3div1 button:hover{
     border-bottom: solid gold 2px;
@@ -75,12 +80,12 @@
 #wr3div2{
     background-color: var(--main-dark-theme);
     padding: 20px 25px 0 25px;
-    margin: 0 25px 0 -5%;
+    margin-top: 70px;
     border-radius: 15px;
     text-align: center;
     overflow:auto;
     height:195px;
-    flex:1 0 0;
+    /* flex:1 0 0; */
 }
 .wrapper4{
     padding-top: 50px;

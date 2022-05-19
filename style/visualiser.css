@@ -166,4 +166,7 @@ padding-left:10px
 }
 .posedropdown span:hover{
     cursor: pointer;
-    }
+}
+#mobile_message{
+    display:none;
+}

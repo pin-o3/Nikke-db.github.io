@@ -1,0 +1,25 @@
+#player-container,
+#background-div,
+#visualiserTop,
+#l2dbgcolorchanger,
+#visualiserMain{
+    display:none
+}
+#mobile_message h1{
+    text-align: center;
+}
+#mobile_message p{
+    padding: 10px 10px 10px 10px;
+    text-align: justify;
+}
+#mobile_message img{
+    width:100vw;
+}
+#mobile_message {
+    padding-top: 5vh
+}
+#mobile_message a{
+    font-weight: bold;
+    color:white;
+    padding-left: 10px;
+}

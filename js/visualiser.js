@@ -75,17 +75,19 @@ const changeSpine = (id) => {
 
             })
       }
-      if (current_l2d === "skill") {
+      if (current_l2d === "skillcut") {
             currentspine = new spine.SpinePlayer("player-container", {
-                  skelUrl: "/l2d/" + id + "/skill/" + id + "_skillcut.skel",
-                  atlasUrl: "/l2d/" + id + "/skill/" + id + "_skillcut.atlas",
+                  skelUrl: "/l2d/" + id + "/skillcut/" + id + "_skillcut.skel",
+                  atlasUrl: "/l2d/" + id + "/skillcut/" + id + "_skillcut.atlas",
                   backgroundColor: current_color,
+                  animation:"skillcut_1",
                   alpha: true,
                   debug: false,
 
             })
       }
 
+      console.log(currentspine)
 
       document.querySelector(".spine-player-canvas").width = document.querySelector(".spine-player-canvas").height
 
@@ -95,7 +97,7 @@ const changeSpine = (id) => {
 
 }
 let current_l2d = "fb"
-// changeSpine("c013")
+// changeSpine("c010")
 
 let move = false
 let oldx = "";
