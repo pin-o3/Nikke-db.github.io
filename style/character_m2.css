@@ -52,13 +52,10 @@
     margin-top: 180px;
     width:100%
 }
-.wrapper3{
-    /* display:flex; */
-}
+
 #wr3div1{
     border-left:solid white 3px;
     margin-left: 25%;
-    /* flex: 0 0 200px; */
     height:160px;
     width: 50%;
 }
@@ -80,12 +77,12 @@
 #wr3div2{
     background-color: var(--main-dark-theme);
     padding: 20px 25px 0 25px;
-    margin-top: 70px;
     border-radius: 15px;
     text-align: center;
+    margin-top: 70px;
     overflow:auto;
     height:195px;
-    /* flex:1 0 0; */
+   
 }
 .wrapper4{
     padding-top: 50px;
