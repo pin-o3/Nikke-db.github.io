@@ -1,3 +1,16 @@
+//block access to mobile to android and mac os
+if (navigator.userAgent.includes("Android") || 
+navigator.userAgent.includes("Mac OS X")){
+      document.querySelector("#player-container").hidden = true
+      document.querySelector("#background-div").hidden = true
+      document.querySelector("#visualiserTop").hidden = true
+      document.querySelector("#l2dbgcolorchanger").hidden = true
+      document.querySelector("#visualiserMain").hidden = true
+      document.querySelector("#mobile_message").hidden = false
+      document.querySelector("body").style.overflow = "auto"
+}
+
+
 const div = document.getElementById("visualiserMain");
 
 async function initJSON() {
@@ -86,8 +99,6 @@ const changeSpine = (id) => {
 
             })
       }
-
-      console.log(currentspine)
 
       document.querySelector(".spine-player-canvas").width = document.querySelector(".spine-player-canvas").height
 

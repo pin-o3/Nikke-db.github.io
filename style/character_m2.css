@@ -15,7 +15,6 @@
     background-color: var(--main-dark-theme);
     border-left: white 2px dotted;
     margin: 25px 0 25px 25%;
-    
     width: 50%;
     height: 50vh;
     overflow: auto;
