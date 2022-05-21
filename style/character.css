@@ -137,7 +137,7 @@
     text-align: justify;
 }
 #character-FB img{
-    max-height: 65vh;
+    /* max-height: 65vh; */
     max-width: 20vw;
 }
 #character-FB{

@@ -125,11 +125,11 @@
     text-align: justify;
 }
 #character-FB img{
-    max-height: 65vh;
-    max-width: 20vw;
+    max-width: 100vw;
 }
 #character-FB{
-    display:none
+  padding-top: 50px;  
+  text-align: center;
 }
 #prog-min-hp,
 #prog-min-att,

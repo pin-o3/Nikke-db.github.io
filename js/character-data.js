@@ -77,6 +77,10 @@ const formatSkill = (skill) =>{
 
 const changeData = async (val) => {
 
+    // change side image ( full body )
+    document.querySelector("#character-FB img").src = "images/FB/"+val.id+"_00.png"
+    document.querySelector("#character-FB img").alt = "Missing image for " +val.name
+    
     const paramURL= window.location.search;
     const ParsedParam = new URLSearchParams(paramURL);
 
@@ -125,10 +129,6 @@ const changeData = async (val) => {
 
     document.querySelector("#wr2div3 img").src = "images/manufacturer/icn_corp_"+corporation+".png"
 
-    // change side image ( full body )
-    document.querySelector("#character-FB img").src = "images/FB/"+val.id+"_00.png"
-    document.querySelector("#character-FB img").alt = "Missing image for " +val.name
-
     // change the stat progress bars with written values, and different sizes 
     // lazy to automate using arrays and several if & switch
 
@@ -172,7 +172,13 @@ const changeData = async (val) => {
     document.querySelector("#class-img img").src = "images/classes/"+val.class+".png"
     document.querySelector("#drive-img img").src = "images/drive/"+val.use_burst_skill+".png"
 
+    console.log(new Date().getTime())
+
 }
+
+window.addEventListener("load",(e)=>{
+    console.log("loaded")
+})
 
 document.querySelector("#character-FB img").addEventListener("click", (e)=>{
     window.location.href = document.querySelector("#character-FB img").src
