@@ -11643,13 +11643,15 @@ var spine = (() => {
       if (!config.atlasUrl)
         throw new Error("A URL must be specified for the atlas file.");
       if (!config.backgroundColor)
-        config.backgroundColor = config.alpha ? "00000000" : "000000";
+        config.backgroundColor = config.alpha ? "ffffff" : "ffffff";
       if (!config.fullScreenBackgroundColor)
         config.fullScreenBackgroundColor = config.backgroundColor;
       if (config.backgroundImage && !config.backgroundImage.url)
         config.backgroundImage = null;
       if (config.premultipliedAlpha === void 0)
         config.premultipliedAlpha = true;
+      if (config.preserveDrawingBuffer === void 0)
+        config.preserveDrawingBuffer = false;
       if (config.mipmaps === void 0)
         config.mipmaps = true;
       if (!config.debug)
@@ -11682,7 +11684,7 @@ var spine = (() => {
       }
       try {
         this.canvas = findWithClass(dom, "spine-player-canvas");
-        this.context = new ManagedWebGLRenderingContext(this.canvas, { alpha: config.alpha });
+        this.context = new ManagedWebGLRenderingContext(this.canvas, { alpha: config.alpha, preserveDrawingBuffer: config.preserveDrawingBuffer });
         this.sceneRenderer = new SceneRenderer(this.canvas, this.context, true);
         if (config.showLoading)
           this.loadingScreen = new LoadingScreen(this.sceneRenderer);

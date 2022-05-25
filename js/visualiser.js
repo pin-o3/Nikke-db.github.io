@@ -50,7 +50,7 @@ const changeSpine = (id) => {
       // there are any spine currently, so the listened divs
       // doesn't exist, thus will break the code and nothing will really work
 
-      document.querySelector("#player-container").innerHTML = " "
+      document.querySelector("#player-container").innerHTML = ""
 
       currentid = id
 
@@ -63,6 +63,7 @@ const changeSpine = (id) => {
                   backgroundColor: current_color,
                   alpha: false,
                   debug: false,
+                  preserveDrawingBuffer:true
             });
       }
       if (current_l2d === "cover") {
@@ -74,6 +75,7 @@ const changeSpine = (id) => {
                   animation: "cover_idle",
                   alpha: false,
                   debug: false,
+                  preserveDrawingBuffer:true
             })
       }
       if (current_l2d === "aim") {
@@ -85,6 +87,7 @@ const changeSpine = (id) => {
                   backgroundColor: current_color,
                   alpha: false,
                   debug: false,
+                  preserveDrawingBuffer:true
 
             })
       }
@@ -96,7 +99,7 @@ const changeSpine = (id) => {
                   animation:"skillcut_1",
                   alpha: true,
                   debug: false,
-
+                  preserveDrawingBuffer:true
             })
       }
 
@@ -329,3 +332,15 @@ for (let i = 0; i< arraypose.length; i++){
             changeSpine(currentid)
       })
 }
+
+document.querySelector(".screenshot").addEventListener("click",async (e) =>{
+      
+      
+      const dataURL = currentspine.canvas.toDataURL()
+      
+      let link = document.createElement('a');
+      link.download= new Date().getTime()+"_"+"NIKKE"+"_"+currentid+"_"+current_l2d+".png"
+      link.href=dataURL
+      link.click()
+      
+})
