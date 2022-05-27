@@ -171,14 +171,7 @@ const changeData = async (val) => {
     //show the class image and drive tier, next to stats 
     document.querySelector("#class-img img").src = "images/classes/"+val.class+".png"
     document.querySelector("#drive-img img").src = "images/drive/"+val.use_burst_skill+".png"
-
-    console.log(new Date().getTime())
-
 }
-
-window.addEventListener("load",(e)=>{
-    console.log("loaded")
-})
 
 document.querySelector("#character-FB img").addEventListener("click", (e)=>{
     window.location.href = document.querySelector("#character-FB img").src

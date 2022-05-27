@@ -159,17 +159,21 @@
     text-align:left;
     top:0;
 }
-#filterModal{
+#filterModal,
+#sortingmodal{
     margin-top: 15vh; 
 }
-#filterModal .modal-content{
+#filterModal .modal-content,
+#sortingmodal .modal-content{
    background-color: var(--main-dark-theme);
    
 }
-#filterModal .modal-footer {
+#filterModal .modal-footer,
+#sortingmodal .modal-footer {
     justify-content: space-between;
 }
-#filterModal .modal-footer button{
+#filterModal .modal-footer button,
+#sortingmodal .modal-footer button{
     border-bottom:white solid 2px;
 }
 .wrapperfilter{
