@@ -2,22 +2,56 @@ const div = document.getElementById("character-list");
 
 let ascending = true;
 let current_sort = "id"
+let allchar
 
 async function initJSON() {
     const response = await fetch('js/json/Characters.json');
     const json = await response.json()
 
-    if (ascending) {
-        json.sort(function (a, b) {
-            return +(a[current_sort].localeCompare(b[current_sort]));
+    const statresp = await fetch('js/json/CharacterStatTable.json')
+    const statjson = await statresp.json()
+
+    if (current_sort==="min-hp" ||current_sort==="min-atk" || current_sort==="min-def" ){
+        let stat;
+        switch (current_sort){
+            case "min-hp": stat = "level_hp"; break;
+            case "min-atk":stat = "level_attack"; break;
+            case "min-def":stat = "level_defence"; break;
+        }
+        json.map((val)=>{
+            
+            statjson.records.map((statval)=>{
+                if (val.stat_enhance_id===statval.group && statval.level === 1){
+                    val.stat = statval[stat]
+                }
+            })
         })
-    } else {
-        json.sort(function (a, b) {
-            return -(a[current_sort].localeCompare(b[current_sort]));
-        })
+        
+        if (ascending) {
+            console.log(json)
+            json.sort(function (a, b) {
+                return +(a.stat - b.stat);
+            })
+        } else {
+            json.sort(function (a, b) {
+                return -(a.stat - b.stat);
+            })
+        }
+
+    }else{
+        if (ascending) {
+            json.sort(function (a, b) {
+                return +(a[current_sort].localeCompare(b[current_sort]));
+            })
+        } else {
+            json.sort(function (a, b) {
+                return -(a[current_sort].localeCompare(b[current_sort]));
+            })
+        }
     }
 
     json.map((val) => {
+        console.log(val)
         const liste_item = document.createElement("li");
 
         liste_item.innerHTML = "<img src='images/sprite/si_" + val.id + "_00_s.png'/>" + val.name
@@ -37,6 +71,12 @@ async function initJSON() {
         })
         div.appendChild(liste_item) //div character list
     })
+
+    setTimeout(() => {
+        allchar = document.querySelectorAll(".charDiv")
+    }, 500);
+
+    
     const paramURL = window.location.search;
     const ParsedParam = new URLSearchParams(paramURL);
 
@@ -57,10 +97,8 @@ async function initJSON() {
 }
 
 initJSON()
-let allchar
-setTimeout(() => {
-    allchar = document.querySelectorAll(".charDiv")
-}, 500);
+
+
 
 // filter value booleans
 let fmg = false,
@@ -84,7 +122,6 @@ let fmg = false,
     fiii = false
 
 const setFilters = (input) => {
-    console.log(input.value)
     switch (input.value) {
         case "MG": fmg = input.checked; break;
         case "SSR": fssr = input.checked; break;
@@ -164,13 +201,17 @@ const listHidden = () => {
             && checkClasse(allchar[i].getAttribute("classe"))
             && checkGun(allchar[i].getAttribute("gun"))
             && checkDrive(allchar[i].getAttribute("drive"))) {
+                
             if (allchar[i].outerText.toLowerCase().includes(query.value.toLowerCase())) {
+                console.log("a")
                 allchar[i].hidden = false
             } else {
+                console.log("b")
                 allchar[i].hidden = true
             }
         }
         else {
+            
             allchar[i].hidden = true
         }
     }
@@ -187,6 +228,7 @@ for (let i = 0; i < filters.length; i++) {
 }
 
 query.addEventListener("input", (e) => {
+    
     listHidden()
 })
 
