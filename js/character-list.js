@@ -28,7 +28,6 @@ async function initJSON() {
         })
         
         if (ascending) {
-            console.log(json)
             json.sort(function (a, b) {
                 return +(a.stat - b.stat);
             })
@@ -51,7 +50,7 @@ async function initJSON() {
     }
 
     json.map((val) => {
-        console.log(val)
+        
         const liste_item = document.createElement("li");
 
         liste_item.innerHTML = "<img src='images/sprite/si_" + val.id + "_00_s.png'/>" + val.name
@@ -76,7 +75,7 @@ async function initJSON() {
         allchar = document.querySelectorAll(".charDiv")
     }, 500);
 
-    
+
     const paramURL = window.location.search;
     const ParsedParam = new URLSearchParams(paramURL);
 
@@ -203,10 +202,10 @@ const listHidden = () => {
             && checkDrive(allchar[i].getAttribute("drive"))) {
                 
             if (allchar[i].outerText.toLowerCase().includes(query.value.toLowerCase())) {
-                console.log("a")
+               
                 allchar[i].hidden = false
             } else {
-                console.log("b")
+                
                 allchar[i].hidden = true
             }
         }
