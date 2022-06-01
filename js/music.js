@@ -1,7 +1,13 @@
+const qs = (val) => {
+    return document.querySelector(val)
+}
+
 const initmusic = async () =>{
     let response = await fetch('js/json/Music.json')
     let json = await response.json()
     
+    qs("#musicnb").innerHTML = "currently serving " + json.length + " songs"
+
     json.map((val)=>{
         let div = document.createElement("div")
         div.classList.add("onemusic")
@@ -16,7 +22,7 @@ const initmusic = async () =>{
         div.appendChild(name)
         div.appendChild(audio)
 
-        document.querySelector("#musicfulldiv").appendChild(div)
+        qs("#musicfulldiv").appendChild(div)
     })
 }
 
