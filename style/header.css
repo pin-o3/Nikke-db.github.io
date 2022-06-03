@@ -20,6 +20,9 @@
     cursor:pointer;
     color:white;
 }
+.navigation{
+    display: none;
+}
 a{
     text-decoration: none;
 }
