@@ -6,43 +6,30 @@
 body{
     background-color: var(--alt-dark-theme);
     font-family: arial;
-    color:white
-}
-#indeximgnav{
-    height: 100px;
-}
-
-
-.nav-btn{
-    transition: 0.5s;
-    border:none;
-    background-color: var(--main-dark-theme);
-    border: var(--main-dark-theme) 2px solid;
-    border-bottom: gold 2px solid;
-    font-size: 20px;
     color:white;
-    margin-left:20px;
+    background-image: url(https://cdn.discordapp.com/attachments/952317115401121812/982299746830004261/nikke_p2_kv2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }
-.nav-btn:hover{
-    transition: 0.5s;
-    border: gold 2px solid;
-    border-radius: 22px;
-    background-color: var(--alt-dark-theme);
-    padding: 0px 20px 0px 20px;
-}
-.nav-div-button{
-    border-bottom: white 2px solid;
-    padding-bottom: 20px;
-    text-align: center;
-    padding-top: 20px;
-    width:100%;
-}
+
+
+
 .index-card-position{
     width: max(400px, 50%);
     margin:auto;
     margin-top: 100px;
     border:white 3px solid;
-    color:black;
+    color:white
+    
+}
+.card{
+    background-color: #212529ea;
+    
+}
+.first-card{
+    margin-top:72vh
 }
 .footer{
     text-align: center;

@@ -1,0 +1,49 @@
+:root{
+    --main-dark-theme: #212529;
+    --alt-dark-theme : #2f353a;
+}
+
+#indeximgnav{
+    height: 100px;
+    text-align: left;
+}
+
+.nav-btn{
+    transition: 0.5s;
+    margin-left:20px;
+    font-size: 20px;
+    color:rgb(180, 175, 175);
+    border:none;
+}
+.nav-btn:hover{
+    font-style: italic;
+    cursor:pointer;
+    color:white;
+}
+a{
+    text-decoration: none;
+}
+
+.nav-div-button{
+    padding-bottom: 20px;
+    padding-top: 20px;
+    width:100%;
+    display:flex;
+}
+
+.wrapperindex{
+    padding-top: -20px;
+    background-color: var(--main-dark-theme);
+    box-shadow: 0px 10px 5px var(--main-dark-theme);
+    display: flex;
+}
+#wri1{
+    flex:0 0 20vw;
+}
+#wri2{
+    text-align: center;
+    position: absolute;
+    right:20px;
+    top:15px;
+    flex:1;
+}

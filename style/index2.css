@@ -1,0 +1,10 @@
+:root{
+    --main-dark-theme: #212529;
+    --alt-dark-theme : #2f353a;
+}
+
+body{
+    background-color: var(--alt-dark-theme);
+    font-family: arial;
+    color:white;
+}
