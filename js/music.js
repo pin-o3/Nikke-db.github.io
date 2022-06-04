@@ -9,14 +9,17 @@ const s2m = (s) => {
     return parseInt(s / 60)
 }
 
-let audio = document.createElement("audio")
-audio.volume=0.5;
+let audio 
+let volume = 0.2
 let currentaudiostate;
 
 let json
 
 const everythingAboutAudio = (url) => {
 
+    if (audio!==undefined) audio.pause()
+    audio = document.createElement("audio")
+    audio.volume=volume ;
     
     let totals, currents;
     
@@ -29,6 +32,7 @@ const everythingAboutAudio = (url) => {
     qs("#volume_div").style.left = qs("#volume button").getBoundingClientRect().x-50 +"px"
     //load the audio and play it, initiate a couples variables
     audio.addEventListener("canplaythrough", (e)=>{
+        
         totals = parseInt(audio.duration - s2m(audio.duration) * 60)
         totals <10 ? totals = "0"+totals : true
 
@@ -121,7 +125,9 @@ const initmusic = async () =>{
             everythingAboutAudio('music/'+e.target.getAttribute("file_url"))
         })
     })
-
+    if (!navigator.userAgent.includes("Chrome")){
+        alert("This page have been reported to have issues on non-chromium based explorers, some functionnalities might not work as expected.")
+    }
 
 }
 
@@ -141,7 +147,9 @@ qs(".btn_volume").addEventListener("click",(e)=>{
 
 qs("#volume_div input").addEventListener("input",(e)=>{
     audio.volume = e.target.value
+    volume = e.target.value
 })
+
 
 window.addEventListener("resize",(e)=> {
     qs("#volume_div").style.top = qs("#volume button").getBoundingClientRect().y-101+"px"
