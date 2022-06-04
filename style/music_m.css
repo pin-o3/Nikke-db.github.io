@@ -51,7 +51,6 @@
 #totaltime,
 #currenttime{
     top: 17px;
-    
 }
 #totaltime{
     margin-left: 10px;
@@ -87,8 +86,12 @@
     
 }
 .btn_play_pause{
-    text-align: right;
-    width: 100%;
+   position: relative;
+   left: -20px;
+}
+.btn_volume{
+    position: relative;
+    right: -20px;
 }
 #volume_div{
     text-align: center;
@@ -100,7 +103,9 @@
     top:0px;
 }
 
-
+.mikudayo{
+    display: none;
+}
 
 
 .rotate{
