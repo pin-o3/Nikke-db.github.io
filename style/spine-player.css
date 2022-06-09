@@ -20,7 +20,7 @@
 
 .spine-player-error {
 	font-size: 14px;
-	z-index: 10;
+	z-index: -5;
 	border-radius: 4px;
 	-webkit-user-select: text;
 	-khtml-user-select: text;
