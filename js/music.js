@@ -122,6 +122,7 @@ const initmusic = async () =>{
         qs("#musicfulldiv").appendChild(div)
 
         div.addEventListener("click",(e)=>{
+            e.target.click()
             everythingAboutAudio('music/'+e.target.getAttribute("file_url"))
         })
     })
