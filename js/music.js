@@ -15,7 +15,9 @@ let currentaudiostate;
 
 let json
 
-const everythingAboutAudio = (url) => {
+const everythingAboutAudio = (div) => {
+
+    url = 'music/'+div.getAttribute("file_url")
 
     if (audio!==undefined) audio.pause()
     audio = document.createElement("audio")
@@ -83,15 +85,26 @@ const everythingAboutAudio = (url) => {
     })
 
     audio.addEventListener("ended",(e)=>{
+        currentsong.classList.remove("currentsong")
         currentaudiostate="ended"
         qs(".btn_play_pause").innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/><path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/></svg>'
 
         // when a song ends , play the next one 
         let i = 0
-        json.map((val)=>{
-            if (val.file === url.replace("music/","")){
-                if (i !== json.length-1 ) everythingAboutAudio("music/"+json[i+1].file)
-                else everythingAboutAudio("music/"+json[0].file)
+        
+        qsa(".onemusic").forEach((val)=>{
+            
+            if (val.getAttribute("file_url") === url.replace("music/","")){
+                if (i !== json.length-1 ){
+                    currentsong = qsa(".onemusic")[i+1]
+                    currentsong.classList.add("currentsong")
+                    everythingAboutAudio(currentsong)
+                }
+                else {
+                    currentsong = qsa(".onemusic")[0]
+                    currentsong.classList.add("currentsong")
+                    everythingAboutAudio(currentsong)
+                }
             } else{
                 i++
             }
@@ -106,6 +119,7 @@ const everythingAboutAudio = (url) => {
     })
 }
 
+let currentsong ="";
 const initmusic = async () =>{
     let response = await fetch('js/json/Music.json')
     json = await response.json()
@@ -116,18 +130,42 @@ const initmusic = async () =>{
 
         let div = document.createElement("div")
         div.classList.add("onemusic")
-        div.innerHTML=val.file
+        div.innerHTML=val.file+
+            "<div class='context'>"+val.context+"</div>" +
+            `<button value=`+val.file+` class='dl_btn'><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+            <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+          </svg></button>`
         div.setAttribute("file_url",val.file)
 
         qs("#musicfulldiv").appendChild(div)
 
         div.addEventListener("click",(e)=>{
-            e.target.click()
-            everythingAboutAudio('music/'+e.target.getAttribute("file_url"))
+            
+            if (currentsong!==""){
+                currentsong.classList.remove("currentsong")
+                
+            }
+            div.classList.add("currentsong")
+            currentsong = div
+
+            div.click()
+            everythingAboutAudio(div)
         })
     })
     if (!navigator.userAgent.includes("Chrome")){
         alert("This page have been reported to have issues on non-chromium based explorers, some functionnalities might not work as expected.")
+    }
+
+    for (let i = 0; i < qsa(".dl_btn").length; i++){
+        qsa(".dl_btn")[i].addEventListener("click",(e)=>{
+            alert("Download started")
+            file = qsa(".dl_btn")[i].value
+            let ancre = document.createElement("a")
+            ancre.download = file
+            ancre.href = "/music/"+file
+            ancre.click()
+        })
     }
 
 }

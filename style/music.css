@@ -114,3 +114,47 @@
         transform: rotate(0deg);
     }
 }
+
+#musicnb{
+    margin-top: 20px;
+}
+
+#musicfulldiv{
+    margin-left: 2.5vw;
+    margin-right: 25%;
+    margin-top: 50px;
+}
+.context{
+    margin-left: 2.5vw;
+    color: #6b7177;
+    max-width: 80%;
+}
+.onemusic{
+    border-left: white 2px solid;
+    border-top-left-radius: 30px;
+    border-top: white 2px solid;
+    padding-left: 2.5vw;
+    margin-top: 20px;
+    cursor:pointer;
+}
+.currentsong{
+    box-shadow: 0px 10px 5px var(--main-dark-theme);
+    border-top: var(--cyan-green) 2px solid;
+    border-left: var(--cyan-green) 2px solid;
+    background-color: var(--main-dark-theme);
+    border-bottom-right-radius: 30px;
+    color:var(--cyan-green);
+}
+.dl_btn{
+    background-color: transparent;
+    margin-right: -20px;
+    position: absolute;
+    text-align: right;
+    margin-top: -35px;
+    color:inherit;
+    border: none;
+    left: 67.5%;
+}
+.dl_btn:hover{
+    color:gold
+}
