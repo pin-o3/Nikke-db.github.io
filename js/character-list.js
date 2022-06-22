@@ -122,12 +122,13 @@ let fmg = false,
 
 const setFilters = (input) => {
     switch (input.value) {
-        case "MG": fmg = input.checked; break;
         case "SSR": fssr = input.checked; break;
         case "SMG": fsmg = input.checked; break;
         case "SRI": fsri = input.checked; break;
         case "DEF": fdef = input.checked; break;
         case "ATK": fatk = input.checked; break;
+        case "SUP": fsup = input.checked; break;
+        case "MG": fmg = input.checked; break;
         case "RL": frl = input.checked; break;
         case "AR": far = input.checked; break;
         case "SG": fsg = input.checked; break;
@@ -136,7 +137,6 @@ const setFilters = (input) => {
         case "MI": fmi = input.checked; break;
         case "TL": ftl = input.checked; break;
         case "PI": fpi = input.checked; break;
-        case "SUP": fsup = input.checked; break;
         case "R": fr = input.checked; break;
         case "I": fi = input.checked; break;
         case "II": fii = input.checked; break;

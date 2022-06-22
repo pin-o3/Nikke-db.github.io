@@ -210,3 +210,7 @@
 .filtertitle{
     margin-left:20%
 }
+#charsubheaderdata{
+    text-align: center;
+    font-style: italic;
+}
