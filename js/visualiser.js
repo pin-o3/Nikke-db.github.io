@@ -1,6 +1,6 @@
 //block access to mobile to android and mac os
 if (navigator.userAgent.includes("Android") || 
-navigator.userAgent.includes("Mac OS X")){
+(navigator.userAgent.includes("Mac OS X")) && !navigator.userAgent.includes("Macintosh")){
       document.querySelector("#player-container").hidden = true
       document.querySelector("#background-div").hidden = true
       document.querySelector("#visualiserTop").hidden = true
