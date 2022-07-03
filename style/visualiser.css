@@ -36,7 +36,6 @@ body {
     border-top-right-radius: 10px;
     padding-left: 5px;
     padding-top: 5px;
-    
     position: fixed;
     height: 60px;
     width: 205px;
@@ -53,8 +52,8 @@ body {
     position: fixed;
     overflow: auto;
     height: 80vh;
-    z-index: 1;
     bottom: 6vh;
+    z-index: 1;
     left: 0;
 }
 
@@ -72,6 +71,7 @@ body {
     margin-bottom: 10px;
     border-radius: 10px;
     transition: 0.5s;
+    user-select: none;
 }
 
 .charDiv:hover {

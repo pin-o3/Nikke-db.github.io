@@ -121,6 +121,7 @@
     border-radius: 10px;
     margin-left: -30px;
     transition: 0.5s;
+    user-select: none;
 }
 .charDiv:hover{
     background-color: var(--alt-dark-theme) ;
