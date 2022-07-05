@@ -49,10 +49,12 @@ body {
     border-left: 2px white dashed;
     border-top-right-radius: 10px;
     margin-left: 20px;
+    padding-top:10px;
     position: fixed;
     overflow: auto;
     height: 80vh;
     bottom: 6vh;
+    width:200px;
     z-index: 1;
     left: 0;
 }
@@ -67,11 +69,11 @@ body {
 .charDiv {
     border: var(--main-dark-theme) 2px solid;
     border-bottom: gold 2px solid;
+    margin: 0 5px 10px 5px;
     list-style-type: none;
-    margin-bottom: 10px;
     border-radius: 10px;
-    transition: 0.5s;
     user-select: none;
+    transition: 0.5s;
 }
 
 .charDiv:hover {
