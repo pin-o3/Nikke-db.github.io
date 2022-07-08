@@ -30,7 +30,7 @@
     margin-right: 10px;
     margin-left: 20px;
     max-height: 65vh;
-    flex: 0 0 200px;
+    flex: 0 0 250px;
     overflow: auto;
 }
 #main-div-character-stats{
@@ -119,9 +119,10 @@
     list-style-type: none;
     margin-bottom: 10px;
     border-radius: 10px;
-    margin-left: -30px;
-    transition: 0.5s;
+    margin-left: -25px;
+    margin-right: 5px;
     user-select: none;
+    transition: 0.5s;
 }
 .charDiv:hover{
     background-color: var(--alt-dark-theme) ;
@@ -133,6 +134,7 @@
 .charDiv img{
     border-radius: 10px;
     height:50px;
+    margin-right: 10px;
 }
 #charDescription{
     text-align: justify;

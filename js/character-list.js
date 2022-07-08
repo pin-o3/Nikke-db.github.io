@@ -89,17 +89,23 @@ async function initJSON() {
             if (val.id === ParsedParam.get('id')) {
                 changeData(val)
                 check = true
-                document.querySelectorAll(".charDiv")[i].classList.add("activeChar")
+                let target = document.querySelectorAll(".charDiv")[i]
+                target.classList.add("activeChar")
+                oldactive = target
             }
             i++
         })
         if (!check) {
             changeData(json[0])
-            document.querySelectorAll(".charDiv")[0].classList.add("activeChar")
+            let target=document.querySelectorAll(".charDiv")[0]
+            target.classList.add("activeChar")
+            oldactive = target
         }
     } else {
         changeData(json[0])
-        document.querySelectorAll(".charDiv")[0].classList.add("activeChar")
+        let target=document.querySelectorAll(".charDiv")[0]
+            target.classList.add("activeChar")
+            oldactive = target
     }
     
 }
