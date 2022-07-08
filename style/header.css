@@ -40,8 +40,14 @@ a{
     box-shadow: 0px 10px 5px var(--main-dark-theme);
     display: flex;
 }
+#wri0{
+    flex: 0 0 5vw;
+    
+}
 #wri1{
+    /* margin-left: 2vw; */
     flex:0 0 20vw;
+    text-align: left;
 }
 #wri2{
     text-align: center;
@@ -49,4 +55,16 @@ a{
     right:20px;
     top:15px;
     flex:1;
+}
+/* #wri0{
+    position: absolute;
+    top:15px ;
+    left:15px;
+} */
+.bi-reddit,
+.bi-discord{
+    margin-top: 15px;
+    /* margin-left: 15px; */
+    text-decoration: none;
+    color:white
 }
