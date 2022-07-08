@@ -25,9 +25,11 @@
 }
 a{
     text-decoration: none;
-    color:white;
+    /* color:white; */
 }
-
+.wrapperindex span a {
+    color:rgb(180, 175, 175);
+}
 .nav-div-button{
     padding-bottom: 20px;
     padding-top: 20px;
