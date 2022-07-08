@@ -47,7 +47,7 @@ const changeSpine = (id) => {
 
       // empties the div to clear the current spine
       // every listeners MUST be in changeSpine because
-      // there are any spine currently, so the listened divs
+      // there aren't any spine currently, so the listened divs
       // doesn't exist, thus will break the code and nothing will really work
 
       document.querySelector("#player-container").innerHTML = ""

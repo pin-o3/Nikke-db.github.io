@@ -197,10 +197,6 @@ const changeData = async (val) => {
     qs("#drive-img img").src = "images/drive/"+val.use_burst_skill+".png"
 }
 
-qs("#character-FB img").addEventListener("click", (e)=>{
-    window.location.href = qs("#character-FB img").src
-})
-
 qs("#btn-regular-attack").addEventListener("click", (e)=>{
     currentSkill=0
     showSkill(currentSkill)
