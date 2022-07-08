@@ -3,6 +3,7 @@ const div = document.getElementById("character-list");
 let ascending = true;
 let current_sort = "id"
 let allchar
+let oldactive = "";
 
 async function initJSON() {
     const response = await fetch('js/json/Characters.json');
@@ -65,8 +66,10 @@ async function initJSON() {
         liste_item.classList.add("charDiv")
 
         liste_item.addEventListener("click", (e) => {
-            document.querySelector(".nav-btn").scrollIntoView()
-            changeData(val)
+            // document.querySelector(".nav-btn").scrollIntoView()
+            e.target.classList.add("activeChar")
+            changeData(val, oldactive)
+            oldactive = e.target
         })
         div.appendChild(liste_item) //div character list
     })
@@ -81,18 +84,24 @@ async function initJSON() {
 
     if (ParsedParam.get('id') != null) {
         let check = false
+        let i = 0
         json.map((val) => {
             if (val.id === ParsedParam.get('id')) {
                 changeData(val)
                 check = true
+                document.querySelectorAll(".charDiv")[i].classList.add("activeChar")
             }
+            i++
         })
         if (!check) {
             changeData(json[0])
+            document.querySelectorAll(".charDiv")[0].classList.add("activeChar")
         }
     } else {
         changeData(json[0])
+        document.querySelectorAll(".charDiv")[0].classList.add("activeChar")
     }
+    
 }
 
 initJSON()
@@ -227,7 +236,6 @@ for (let i = 0; i < filters.length; i++) {
 }
 
 query.addEventListener("input", (e) => {
-    
     listHidden()
 })
 

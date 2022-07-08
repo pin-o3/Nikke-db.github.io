@@ -85,8 +85,11 @@ const formatSkill = (skill) =>{
     + "</p>"
 }
 
-const changeData = async (val) => {
+const changeData = async (val, oldactive) => {
 
+    // console.log(oldactive);
+    if (oldactive!==undefined && oldactive!=="") oldactive.classList.remove("activeChar")
+    
     // change side image ( full body )
     qs("#character-FB img").src = "images/FB/"+val.id+"_00.png"
     qs("#character-FB img").alt = "Missing image for " +val.name
