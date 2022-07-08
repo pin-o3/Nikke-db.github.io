@@ -29,6 +29,10 @@ a{
 }
 .wrapperindex span a {
     color:rgb(180, 175, 175);
+    transition: 0.5s;
+}
+.wrapperindex span a:hover {
+    color:white;  
 }
 .nav-div-button{
     padding-bottom: 20px;
