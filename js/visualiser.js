@@ -300,14 +300,25 @@ document.querySelector(".hidebar").addEventListener("click", (e) => {
       }
 })
 
+// hide top menu/navbar
+
+document.querySelector(".hidenav").addEventListener("click",(e)=>{
+      let hidden = document.querySelector(".wrapperindex").hidden
+      if (hidden){
+            document.querySelector(".wrapperindex").hidden = false
+      }else{
+            document.querySelector(".wrapperindex").hidden = true
+      }
+})
 
 //hide all UI
 
 document.querySelector(".hideUI").addEventListener("click",(e)=>{
       alert("To turn the UI back on, press the Enter key of your keyboard")
-      document.querySelector("#visualiserTop").hidden = true
+      // document.querySelector("#visualiserTop").hidden = true
       document.querySelector("#visualiserMain").hidden = true
       document.querySelector("#l2dbgcolorchanger").hidden = true
+      document.querySelector(".wrapperindex").hidden = true
       // document.querySelector("#nikketxtgrid").hidden = true
       document.querySelector(".spine-player-controls").hidden = true
 
@@ -316,11 +327,12 @@ document.querySelector(".hideUI").addEventListener("click",(e)=>{
 
 document.addEventListener("keypress",(e)=>{
       if (e.key==="Enter"){
-            document.querySelector("#visualiserTop").hidden = false
-      document.querySelector("#visualiserMain").hidden = false
-      document.querySelector("#l2dbgcolorchanger").hidden = false
-      // document.querySelector("#nikketxtgrid").hidden = false
-      document.querySelector(".spine-player-controls").hidden = false
+            document.querySelector(".wrapperindex").hidden = false
+            // document.querySelector("#visualiserTop").hidden = false
+            document.querySelector("#visualiserMain").hidden = false
+            document.querySelector("#l2dbgcolorchanger").hidden = false
+            // document.querySelector("#nikketxtgrid").hidden = false
+            document.querySelector(".spine-player-controls").hidden = false
       }
 })
 
